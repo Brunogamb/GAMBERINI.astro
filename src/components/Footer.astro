@@ -1,0 +1,115 @@
+---
+---
+
+<footer class="footer"> 
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>NAVEGACIÓN</h4>
+            <a href="index.html">Inicio</a>
+            <a href="sistema-de-protección-contra-incendios.html">Sistema de protección contra incendios</a>
+            <a href="diseño-y-montaje.html">Diseño y montaje</a>
+            <a href="servicio-tecnico.html">Servicio técnico</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="footer-section">
+            <h4>UBICACIÓN</h4>
+            <a href="contacto.html">
+                <i class="fas fa-map-marker-alt"></i>
+                Francisco Soler 1083<br>Paraná (3100)<br>Entre Ríos, Argentina
+            </a>
+        </div>
+        <div class="footer-section">
+            <h4>CONTACTO</h4>
+            <a href="tel:+543434341997"><i class="fas fa-phone"></i> +54 343 434 1997</a>
+            <a href="mailto:ingenieria@gamberini.com.ar"><i class="fas fa-envelope"></i> ingenieria@gamberini.com.ar</a>
+        </div>
+        <div class="footer-section redes">
+            <h4>REDES SOCIALES</h4>
+            <a href="https://www.instagram.com/gamberinibombas/" target="_blank">
+                <i class="fab fa-instagram"></i> gamberinibombas
+            </a>
+        </div>
+        <div class="footer-divider"></div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Gamberini. Todos los derechos reservados. Imágenes y marcas de terceros pertenecen a sus respectivos dueños.</p>
+        <p class="dev-name">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank" class="dev-link">BrunoGamb</a></p>
+    </div>
+</footer>
+
+<style>
+.footer {
+    background-color: #29166f;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+    margin-top: 20px;
+    color: #f1f1f1;
+}
+
+.footer-content {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+.footer-section a{
+    cursor: pointer;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #a793e7;
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #f1f1f1;
+    max-width: 80%;
+}
+
+.footer-bottom p {
+    padding: 0 20px;
+}
+
+.dev-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #f1f1f1;
+    font-weight: 300;
+}
+
+.dev-link {
+    font-weight: 600;
+}
+
+.dev-link:hover, .footer a:hover {
+    color: #a793e7;
+    text-decoration: underline;
+}
+
+@media (max-width: 350px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+</style>

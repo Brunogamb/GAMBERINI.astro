@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/img/logo.png';
+---
+
+<Layout title="Gamberini | Contacto">
+	<main>
+        <div class="main-container">
+            <div class="title">
+                <h1>
+                    <a class="logo-title" href="index.html">
+                        <Image src={logo} alt="Logo Gamberini" />
+                    </a>
+                </h1>
+            </div>
+            <div class="title-divider"></div>
+            <h2>Contacto</h2>
+        </div>
+        <section class="contact-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.1302274486584!2d-60.51717982407858!3d-31.739646174114334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b44d8cf1fddd99%3A0xf24a634fcf7af8df!2sGAMBERINI!5e0!3m2!1ses-419!2sar!4v1751767792047!5m2!1ses-419!2sar"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa-contacto"></iframe>
+            <span class="contact-info">
+                <span class="elementos-contacto">
+                    <i class="fas fa-clock"></i>
+                    <span class="horarios"> Horarios de atención:</span><br>
+                    Lunes a Viernes: 8:00 - 17:00
+                </span>
+                <a href="tel:+5403434341997" class="elementos-contacto">
+                    <i class="fas fa-phone"></i> Tel:+54 343 434 1997
+                </a>
+                <a href="mailto:ingenieria@gamberini.com.ar" class="elementos-contacto">
+                    <i class="fas fa-envelope"></i> ingenieria@gamberini.com.ar
+                </a>
+                <a href="https://www.instagram.com/gamberinibombas/" target="_blank" class="elementos-contacto">
+                    <i class="fab fa-instagram"></i> @gamberinibombas
+                </a>
+            </span>
+        </section>
+    </main>
+</Layout>
+
+<style>
+.contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mapa-contacto {
+    max-width: 100%;
+    width: 600px;
+    height: 400px;
+    border-radius: 40px;
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    border: 1px solid #29166f;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-weight: 200;
+    font-size: clamp(16px, 1.5vw, 22px);
+    padding: clamp(20px, 1vw, 60px);
+    color: #232323;
+}
+
+.contact-info i {
+    color: #29166f;
+}
+
+.elementos-contacto {
+    margin-bottom: 10px;
+}
+
+.horarios {
+    line-height: 40px;
+}
+</style>

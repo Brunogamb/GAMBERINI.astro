@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+import logofull from '../assets/img/logoblanco.png';
+---
+
+<header>
+    <div class="header-logo">
+        <a href="index.html">
+            <Image src={logofull} alt="Logo blanco Gamberini" loading="lazy" class="logo-full"/>
+            <img src="img/faviconblanco.png" alt="Gamberini Icono" class="logo-icon">
+        </a>
+    </div>
+    <nav class="navegation">
+        <a href="index.html"><i class="fas fa-home"></i>Inicio</a>
+        <div class="dropdown">
+            <button class="dropdown-trigger">
+                <i class="fas fa-cogs"></i>Servicios <i class="fas fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="sistema-de-protección-contra-incendios.html"><i class="fas fa-fire-extinguisher"></i>Sistema de protección contra incendios</a>
+                <a href="diseño-y-montaje.html"><i class="fas fa-drafting-compass"></i>Diseño y montaje</a>
+                <a href="servicio-tecnico.html"><i class="fas fa-tools"></i>Servicio técnico</a>
+            </div>
+        </div>
+        <a href="contacto.html"><i class="fas fa-phone"></i>Contacto</a>
+    </nav>
+</header>
+
+
+<style>
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #29166f;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px; 
+}
+
+.header-logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 10001;
+}
+
+.header-logo img {
+    height: 100%;
+    width: auto;
+}
+
+.header-logo.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.header-logo .logo-icon {
+    display: none;
+}
+.header-logo .logo-full {
+    display: block;
+}
+
+.navegation {
+    display: flex;
+    gap: 24px;
+}
+
+.navegation a {
+    color: #f1f1f1;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.navegation a:hover, .dropdown-trigger:hover {
+    color: #a793e7;
+}
+
+.navegation i {
+    font-size: 20px;
+}
+
+.dropdown-trigger {
+	background: none;
+	border: none;
+	color: #f1f1f1;
+	font-weight: 500;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: color 0.2s;
+	padding: 0;
+	font-family: inherit;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+display: none;
+position: fixed;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+background-color: #fff;
+min-width: max-content;
+padding: 4px 0;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+border: 1px solid #29166f;
+z-index: 9999;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #29166f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (max-width: 1520px) {
+    .header-logo .logo-icon {
+        display: block;
+        width: 40px;
+        height: auto;
+    }
+
+    .header-logo .logo-full {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .navegation a, .navegation button {
+        font-size: 0;          
+        margin: 0 8px;    
+    }
+
+    .navegation a i, .navegation button i {       
+        font-size: clamp(20px, 6vw, 24px);
+    }
+
+    .navegation {
+        gap: 16px;
+        justify-content: center;
+        padding-top: 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .header-logo, .logo-icon {
+        display: none;
+    }
+}
+</style>
