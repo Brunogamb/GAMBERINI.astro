@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "deploy": "astro build && git checkout gh-pages && git rm -rf . && cp -r dist/* . && git add . && git commit -m 'deploy' && git push origin gh-pages && git checkout main"
   },
   "dependencies": {
     "astro": "^5.11.1"
