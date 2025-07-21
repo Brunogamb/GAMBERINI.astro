@@ -17,9 +17,9 @@ import logofull from '../assets/img/logoblanco.png';
                 <i class="fas fa-cogs"></i>Servicios <i class="fas fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i>Sistema de protección contra incendios</a>
-                <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i>Diseño y montaje</a>
-                <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i>Servicio técnico</a>
+                <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
+                <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
+                <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
             </div>
         </div>
         <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i>Contacto</a>
@@ -171,6 +171,10 @@ z-index: 9999;
         gap: 16px;
         justify-content: center;
         padding-top: 6px;
+    }
+
+    .dropdown-content a .text {
+        display: none;
     }
 }
 
