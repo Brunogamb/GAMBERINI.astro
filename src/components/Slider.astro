@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import bomba1 from '../assets/img/bomba1.png';
 import wilo from '../assets/marcas/Wilo.webp';
 import grundfos from '../assets/marcas/Grundfos.webp';
 import dab from '../assets/marcas/DAB.webp';
@@ -26,3 +25,55 @@ import genebre from '../assets/marcas/GENEBRE.webp';
         <div class="slide"><Image src={wilo} alt="Logo 7" loading="lazy" /></div>
     </div>
 </div>
+
+<style>
+    .slider {
+    width: 100%;
+    margin: 40px auto 20px auto;
+    overflow: hidden;
+}
+
+.slider .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+}
+
+.slide {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    display: flex;
+    align-items: center;
+}
+
+.slide img {
+    max-height: 50px; 
+    width: auto;  
+    display: block;
+}
+
+@keyframes scroll{
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+.slide-track {
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.slide-track img {
+    height: 80px;
+    object-fit: contain;
+    transition: 0.2s ease;
+}
+
+.slide-track img:hover {
+    transform: scale(1.08);
+}
+</style>
