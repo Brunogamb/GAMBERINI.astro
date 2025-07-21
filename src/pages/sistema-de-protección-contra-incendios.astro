@@ -22,3 +22,61 @@ import bomba1 from '../assets/img/bomba1.png';
         </div>
     </main>
 </Layout>
+
+<style>
+.cards p {
+    font-weight: 200;
+    font-size: clamp(16px, 1.5vw, 22px);
+    padding: clamp(20px, 6vw, 60px);
+    color: #232323;
+}
+
+.cards p span{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #232323;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.cards img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid #29166f;
+    border-radius: 40px;
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.cards img:hover{
+    transform: scale(1.03);
+}
+
+@media (max-width: 1190px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .cards img {
+        order: -1;
+    }
+
+    .cards  {
+        max-width: 760px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards img {
+        max-width: 300px;
+    }
+}
+</style>

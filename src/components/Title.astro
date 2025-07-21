@@ -16,3 +16,51 @@ const { pageTitle } = Astro.props;
     <div class="title-divider"></div>
     <h2>{pageTitle}</h2>
 </div>
+
+<style>
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 2rem auto;
+}
+
+.logo-title {
+    width: 100%;
+}
+
+.logo-title img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+}
+
+.title-divider {
+    height: 1px;
+    background-color: #29166f;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 0;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 300;
+    color: #232323;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 20px;
+        margin: 1rem 1rem 2rem;
+    }
+}
+</style>
