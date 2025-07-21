@@ -114,11 +114,22 @@ h2 {
 @media (max-width: 1190px) {
     .title-divider {
         margin: auto;
-        max-width: 90%;
     }
 
     .contact-section {
         flex-direction: column;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .cards img {
+        order: -1;
+    }
+
+    .cards  {
+        max-width: 760px;
     }
 }
 
@@ -139,5 +150,11 @@ h2 {
 
     .title {
         max-width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards img {
+        max-width: 300px;
     }
 }
