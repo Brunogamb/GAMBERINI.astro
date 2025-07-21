@@ -1,21 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import logo from '../assets/img/logo.png';
+import Title from '../components/Title.astro';
 ---
 
 <Layout title="Gamberini | Servicio tecnico">
 	<main>
-        <div class="main-container">
-            <div class="title">
-                <h1>
-                    <a class="logo-title" href="index.html">
-                        <Image src={logo} alt="Logo Gamberini" />
-                    </a>
-                </h1>
-            </div>
-            <div class="title-divider"></div>
-            <h2>Servicio técnico</h2>
-        </div>
+        <Title pageTitle="Servicio técnico" />
     </main>
 </Layout>

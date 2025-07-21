@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/img/logo.png';
+
+const { pageTitle } = Astro.props;
+---
+
+<div class="main-container">
+    <div class="title">
+        <h1>
+            <a class="logo-title" href="/">
+                <Image src={logo} alt="Logo Gamberini" />
+            </a>
+        </h1>
+    </div>
+    <div class="title-divider"></div>
+    <h2>{pageTitle}</h2>
+</div>

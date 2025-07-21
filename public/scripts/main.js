@@ -55,20 +55,30 @@ window.addEventListener('scroll', () => {
 
 // CARRUSEL BANNER
 
-const banner = document.getElementById("banner");
-    const totalSlides = document.querySelectorAll(".banner-slide").length;
+document.addEventListener('DOMContentLoaded', () => {
+    const bannerContainer = document.querySelector('.banner-container');
+    if (!bannerContainer) return; // Si no hay banner, no hacer nada.
+
+    const banner = document.getElementById("banner");
+    const slides = banner.querySelectorAll(".banner-slide");
+    const totalSlides = slides.length;
+    if (totalSlides <= 1) return; // No activar carrusel si hay 1 o 0 slides
+
     let index = 0;
 
     function updateSlidePosition() {
         banner.style.transform = `translateX(-${index * 100}vw)`;
     }
 
-    document.getElementById("next").addEventListener("click", () => {
+    const nextButton = document.getElementById("next");
+    const prevButton = document.getElementById("prev");
+
+    nextButton.addEventListener("click", () => {
         index = (index + 1) % totalSlides;
         updateSlidePosition();
     });
 
-    document.getElementById("prev").addEventListener("click", () => {
+    prevButton.addEventListener("click", () => {
         index = (index - 1 + totalSlides) % totalSlides;
         updateSlidePosition();
     });
@@ -77,3 +87,4 @@ const banner = document.getElementById("banner");
         index = (index + 1) % totalSlides;
         updateSlidePosition();
     }, 7000);
+});

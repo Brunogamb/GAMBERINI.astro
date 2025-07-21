@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import sistemaIncendiosImg from '../assets/img/bomba1.png';
+import disenoMontajeImg from '../assets/img/bomba1.png'; 
+import servicioTecnicoImg from '../assets/img/bomba1.png';
+
+const slides = [
+    {
+        href: "/GAMBERINI.astro/sistema-de-protección-contra-incendios",
+        image: sistemaIncendiosImg,
+        alt: "Vista de una sala de bombas para sistema de protección contra incendios"
+    },
+    {
+        href: "/GAMBERINI.astro/diseño-y-montaje",
+        image: disenoMontajeImg,
+        alt: "Equipo trabajando en el diseño y montaje de una instalación"
+    },
+    {
+        href: "/GAMBERINI.astro/servicio-tecnico",
+        image: servicioTecnicoImg,
+        alt: "Técnico realizando mantenimiento a un equipo de bombeo"
+    }
+];
+---
+
+<div class="banner-container">
+    <div class="banner" id="banner">
+        {slides.map(slide => (
+            <a href={slide.href} class="banner-slide">
+                <Image src={slide.image} alt={slide.alt} loading="eager" />
+            </a>
+        ))}
+    </div>
+    <div class="banner-buttons">
+        <button id="prev" aria-label="Diapositiva anterior">&#10094;</button>
+        <button id="next" aria-label="Siguiente diapositiva">&#10095;</button>
+    </div>
+</div>
+
+<style>
+.banner-container {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+}
+
+.banner {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-slide {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.banner-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 2rem 0 1rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.banner-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+    pointer-events: auto;
+}
+
+.banner-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+</style>
