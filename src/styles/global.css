@@ -1,11 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/200.css"); /* Extra-Light */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/300.css"); /* Light */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/400.css"); /* Regular */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/500.css"); /* Medium */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/600.css"); /* Semi-Bold */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/700.css"); /* Bold */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/onest/800.css"); /* Extra-Bold */
-
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +5,7 @@
 }
 
 body {
-    font-family: 'Onest', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Onest Variable', ui-sans-serif, system-ui, sans-serif;
     background-color: #f1f1f1;
     display: flex;
     flex-direction: column;
