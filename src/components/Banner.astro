@@ -96,3 +96,41 @@ const slides = [
     background-color: rgba(0, 0, 0, 0.7);
 }
 </style>
+
+<script type="module">
+	// CARRUSEL BANNER
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const bannerContainer = document.querySelector('.banner-container');
+		if (!bannerContainer) return; // Si no hay banner, no hacer nada.
+
+		const banner = document.getElementById("banner");
+		const slides = banner.querySelectorAll(".banner-slide");
+		const totalSlides = slides.length;
+		if (totalSlides <= 1) return; // No activar carrusel si hay 1 o 0 slides
+
+		let index = 0;
+
+		function updateSlidePosition() {
+			banner.style.transform = `translateX(-${index * 100}vw)`;
+		}
+
+		const nextButton = document.getElementById("next");
+		const prevButton = document.getElementById("prev");
+
+		nextButton.addEventListener("click", () => {
+			index = (index + 1) % totalSlides;
+			updateSlidePosition();
+		});
+
+		prevButton.addEventListener("click", () => {
+			index = (index - 1 + totalSlides) % totalSlides;
+			updateSlidePosition();
+		});
+
+		setInterval(() => {
+			index = (index + 1) % totalSlides;
+			updateSlidePosition();
+		}, 7000);
+	});
+</script>

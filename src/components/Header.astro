@@ -182,3 +182,20 @@ z-index: 9999;
     }
 }
 </style>
+
+<script type="module">
+    // SCROLL LOGO
+
+	const headerLogo = document.querySelector('.header-logo');
+	const logoPrincipal = document.querySelector('.logo-title');
+
+	window.addEventListener('scroll', () => {
+		const logoBottom = logoPrincipal.getBoundingClientRect().bottom;
+
+		if (logoBottom < 60) {
+		headerLogo.classList.add('show');
+		} else {
+		headerLogo.classList.remove('show');
+		}
+	});
+</script>
