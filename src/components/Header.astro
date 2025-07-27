@@ -27,7 +27,6 @@ import logoicon from '/public/img/faviconblanco.png';
     </nav>
 </header>
 
-
 <style>
 header {
     position: fixed;
@@ -50,12 +49,8 @@ header {
     top: 50%;
     transform: translateY(-50%);
     height: 40px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
     z-index: 10001;
 }
-
 .header-logo img {
     height: 100%;
     width: auto;
@@ -66,10 +61,11 @@ header {
     pointer-events: auto;
 }
 
-.header-logo .logo-icon {
+.logo-icon{
     display: none;
 }
-.header-logo .logo-full {
+
+.logo-full {
     display: block;
 }
 
@@ -183,20 +179,3 @@ z-index: 9999;
     }
 }
 </style>
-
-<script type="module">
-    // SCROLL LOGO
-
-	const headerLogo = document.querySelector('.header-logo');
-	const logoPrincipal = document.querySelector('.logo-title');
-
-	window.addEventListener('scroll', () => {
-		const logoBottom = logoPrincipal.getBoundingClientRect().bottom;
-
-		if (logoBottom < 60) {
-		headerLogo.classList.add('show');
-		} else {
-		headerLogo.classList.remove('show');
-		}
-	});
-</script>
