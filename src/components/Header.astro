@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import logofull from '../assets/img/logoblanco.png';
+import logoicon from '/public/img/faviconblanco.png';
 ---
 
 <header>
     <div class="header-logo">
         <a href="/GAMBERINI.astro/">
             <Image src={logofull} alt="Logo blanco Gamberini" loading="lazy" class="logo-full"/>
-            <img src="/GAMBERINI.astro/img/faviconblanco.png" alt="Gamberini Icono" class="logo-icon">
+            <Image src={logoicon} alt="Logo blanco Gamberini icono" loading="lazy" class="logo-icon"/>
         </a>
     </div>
     <nav class="navegation">
@@ -33,7 +34,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: #29166f;
+    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     z-index: 10000;
     display: flex;

@@ -1,136 +1,257 @@
 ---
 import { Image } from 'astro:assets';
-import sistemaIncendiosImg from '../assets/img/bomba1.png';
-import disenoMontajeImg from '../assets/img/bomba1.png'; 
+
+import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
+import disenoMontajeImg from '../assets/img/diseño-y-montaje.webp';
 import servicioTecnicoImg from '../assets/img/bomba1.png';
 
 const slides = [
     {
         href: "/GAMBERINI.astro/sistema-de-protección-contra-incendios",
         image: sistemaIncendiosImg,
-        alt: "Vista de una sala de bombas para sistema de protección contra incendios"
+        alt: "Vista de una sala de bombas para sistema de protección contra incendios",
+        title: "Sistema de Protección Contra Incendios",
+        description: "Instalación, mantenimiento y diseño profesional de sistemas contra incendios para industrias, comercios y hogares. Protección garantizada por profesionales certificados."
     },
     {
         href: "/GAMBERINI.astro/diseño-y-montaje",
         image: disenoMontajeImg,
-        alt: "Equipo trabajando en el diseño y montaje de una instalación"
+        alt: "Equipo trabajando en el diseño y montaje de una instalación",
+        title: "Diseño y Montaje Profesional",
+        description: "Servicios integrales para el diseño y montaje de sistemas de bombeo y protección adaptados a sus necesidades específicas."
     },
     {
         href: "/GAMBERINI.astro/servicio-tecnico",
         image: servicioTecnicoImg,
-        alt: "Técnico realizando mantenimiento a un equipo de bombeo"
+        alt: "Técnico realizando mantenimiento a un equipo de bombeo",
+        title: "Servicio Técnico Especializado",
+        description: "Mantenimiento, reparación y soporte técnico para asegurar el óptimo funcionamiento de sus equipos de bombeo."
     }
 ];
 ---
 
-<div class="banner-container">
-    <div class="banner" id="banner">
-        {slides.map(slide => (
-            <a href={slide.href} class="banner-slide">
-                <Image src={slide.image} alt={slide.alt} loading="eager" />
-            </a>
-        ))}
+
+<div class="banner-carousel">
+    <div class="carousel-track" id="banner-track">
+    {slides.map((slide) => (
+        <a href={slide.href} class="carousel-slide" aria-label={`Ir a ${slide.alt}`}>
+        <Image src={slide.image} alt={slide.alt} loading="eager" width={1000} height={750} />
+        <div class="banner-text">
+            <h2>{slide.title}</h2>
+            <p>{slide.description}</p>
+        </div>
+        </a>
+    ))}
     </div>
-    <div class="banner-buttons">
+    <div class="carousel-controls">
         <button id="prev" aria-label="Diapositiva anterior">&#10094;</button>
         <button id="next" aria-label="Siguiente diapositiva">&#10095;</button>
     </div>
+    <div class="carousel-dots" id="carousel-dots">
+    {slides.map((_, i) => (
+        <button class="dot" aria-label={`Ir a la diapositiva ${i + 1}`} data-index={i}></button>
+    ))}
+    </div>
 </div>
 
+
 <style>
-.banner-container {
+.banner-carousel {
     position: relative;
-    width: 100vw;
-    height: 50vh;
+    width: 100dvw;
+    height: 55dvh;
     overflow: hidden;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
 }
 
-.banner {
+.carousel-track {
     display: flex;
     height: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 
-.banner-slide {
-    display: block;
-    position: relative;
-    width: 100vw;
-    height: 100%;
-    flex-shrink: 0;
-    z-index: 1;
+.carousel-slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    justify-content: center;
+    gap: 40px;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
-.banner-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.carousel-slide img {
+    object-fit: contain;
+    max-width: 40%;
 }
 
-.banner-buttons {
+.carousel-controls {
     position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    transform: translateY(-50%);
     padding: 0 2rem 0 1rem;
+    transform: translateY(-50%);
     z-index: 10;
     pointer-events: none;
 }
 
-.banner-buttons button {
-    background-color: rgba(0, 0, 0, 0.5);
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: 0.3s;
+    padding: 0.3rem 1rem;
+    border-radius: 12px;
     pointer-events: auto;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
-.banner-buttons button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+.carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.banner-text {
+    max-width: 40%;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.banner-text h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 1.1;
+}
+
+.banner-text p {
+    font-size: clamp(16px, 1.5vw, 22px);
+    font-weight: 200;
+    line-height: 1.5;
+    color: #e4e0fa;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 15;
+}
+
+.carousel-dots .dot {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    margin: 0 6px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #fff;
+}
+
+@media (max-width: 900px) {
+    .carousel-slide {
+        flex-direction: column;
+    }
+
+    .carousel-slide img {
+        order: 2;
+        max-width: 80%;
+    }
+
+    .carousel-slide img, .banner-text {
+        width: 100%;
+    }
+
+    .banner-text {
+        max-width: 80%;
+        padding-top: 20px;
+    }
 }
 </style>
 
 <script type="module">
-	// CARRUSEL BANNER
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById("banner-track");
+    const slides = track.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".carousel-dots .dot");
+    const total = slides.length;
+    let index = 0;
+    let autoplayInterval;
 
-	document.addEventListener('DOMContentLoaded', () => {
-		const bannerContainer = document.querySelector('.banner-container');
-		if (!bannerContainer) return; // Si no hay banner, no hacer nada.
+    function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+    }
 
-		const banner = document.getElementById("banner");
-		const slides = banner.querySelectorAll(".banner-slide");
-		const totalSlides = slides.length;
-		if (totalSlides <= 1) return; // No activar carrusel si hay 1 o 0 slides
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            index = (index + 1) % total;
+            updateSlide();
+        }, 7000);
+    }
 
-		let index = 0;
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
 
-		function updateSlidePosition() {
-			banner.style.transform = `translateX(-${index * 100}vw)`;
-		}
+    document.getElementById("next").addEventListener("click", () => {
+        index = (index + 1) % total;
+        updateSlide();
+    });
 
-		const nextButton = document.getElementById("next");
-		const prevButton = document.getElementById("prev");
+    document.getElementById("prev").addEventListener("click", () => {
+        index = (index - 1 + total) % total;
+        updateSlide();
+    });
 
-		nextButton.addEventListener("click", () => {
-			index = (index + 1) % totalSlides;
-			updateSlidePosition();
-		});
+    dots.forEach(dot => {
+        dot.addEventListener("click", (e) => {
+            index = Number(e.target.dataset.index);
+            updateSlide();
+        });
+    });
 
-		prevButton.addEventListener("click", () => {
-			index = (index - 1 + totalSlides) % totalSlides;
-			updateSlidePosition();
-		});
+    let startX = 0;
+    let isSwiping = false;
 
-		setInterval(() => {
-			index = (index + 1) % totalSlides;
-			updateSlidePosition();
-		}, 7000);
-	});
+    track.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+        stopAutoplay();
+    });
+
+    track.addEventListener("touchend", (e) => {
+        if (!isSwiping) return;
+
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                index = (index + 1) % total;
+            } else {
+                index = (index - 1 + total) % total;
+            }
+            updateSlide();
+        }
+
+        isSwiping = false;
+        startAutoplay();
+    });
+
+    updateSlide();
+    startAutoplay();
+});
 </script>

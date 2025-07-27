@@ -2,41 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import { Image } from 'astro:assets';
-import bomba1 from '../assets/img/bomba1.png';
+import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
 ---
 
 <Layout title="Gamberini | Sistema de protección contra incendios">
 	<main>
         <Title pageTitle="Sistemas de protección contra incendio" />
         <div class="cards">
-            <Image src={bomba1} alt="Bomba 1" />
+            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
             <p>Con más de 15 años en el mercado, realizamos proyectos integrales de <span>sistemas de deteccion temprana y sistemas fijos</span> en base a agua, los cuales comprenden diseño y dimensionamiento personalizado para cada aplicación, montaje de instalaciones, start up y mantenimiento periódico bajo estrictas <span>normas internacionales.</span></p>
         </div>
         <div class="cards">
             <p>Los <span>sistemas de detección temprana</span> utilizados para identificar a tiempo el inicio de incendios, permiten una respuesta rápida que puede salvar vidas y minimizar daños a sus instalaciones. Una detección oportuna marca la diferencia.</span></p>
-            <Image src={bomba1} alt="Bomba 2" />
+            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
         </div>
         <div class="cards">
-            <Image src={bomba1} alt="Bomba 3" />
+            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
             <p>Para el conformado de nuestras redes de incendio, utilizamos cañería con extremos ranurados. Esto garantiza ensamblajes en tiempos más cortos, lo cual reduce de manera significativa la duracion de nuestras obras</p>
         </div>
     </main>
 </Layout>
 
 <style>
-.cards p {
-    font-weight: 200;
-    font-size: clamp(16px, 1.5vw, 22px);
-    padding: clamp(20px, 6vw, 60px);
-    color: #232323;
-}
-
-.cards p span{
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #232323;
-}
-
 .cards {
     display: flex;
     align-items: center;
@@ -46,9 +33,23 @@ import bomba1 from '../assets/img/bomba1.png';
     max-width: 1200px;
 }
 
+.cards p {
+    font-weight: 200;
+    font-size: clamp(16px, 1.5vw, 22px);
+    padding: clamp(20px, 6vw, 60px);
+    color: #232323;
+    line-height: 1.5;
+}
+
+.cards p span{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #232323;
+}
+
 .cards img {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     height: auto;
     border: 1px solid #29166f;
     border-radius: 40px;
