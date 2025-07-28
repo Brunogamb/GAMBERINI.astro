@@ -12,18 +12,18 @@ import logoicon from '/public/img/faviconblanco.png';
         </a>
     </div>
     <nav class="navegation">
-        <a href="/GAMBERINI.astro/"><i class="fas fa-home"></i>Inicio</a>
+        <a href="/GAMBERINI.astro/"><i class="fas fa-home"></i><span class="text">Inicio</span></a>
         <div class="dropdown">
-            <button class="dropdown-trigger">
-                <i class="fas fa-cogs"></i>Servicios <i class="fas fa-caret-down"></i>
+            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cogs"></i><span class="text">Servicios</span><i class="fas fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
-                <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
-                <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
+            <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
+            <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
+            <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
             </div>
         </div>
-        <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i>Contacto</a>
+        <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
     </nav>
 </header>
 
@@ -64,10 +64,6 @@ header {
 
 .logo-icon{
     display: none;
-}
-
-.logo-full {
-    display: block;
 }
 
 .navegation {
@@ -114,21 +110,17 @@ header {
 }
 
 .dropdown-content {
-display: none;
-position: fixed;
-top: 40px;
-left: 50%;
-transform: translateX(-50%);
-background-color: #fff;
-min-width: max-content;
-padding: 4px 0;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-border: 1px solid #29166f;
-z-index: 9999;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    display: none;
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    min-width: max-content;
+    padding: 4px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #29166f;
+    z-index: 9999;
 }
 
 .dropdown-content a {
@@ -141,11 +133,14 @@ z-index: 9999;
     font-weight: 500;
 }
 
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 @media (max-width: 1100px) {
     .header-logo .logo-icon {
         display: block;
         width: 50px;
-        height: auto;
     }
 
     .header-logo .logo-full {
@@ -158,9 +153,12 @@ z-index: 9999;
 }
 
 @media (max-width: 600px) {
-    .navegation a, .navegation button {
-        font-size: 0;          
-        margin: 0 8px;    
+    .navegation a {       
+        padding: 0 16px;
+    }
+
+    .text {
+        display: none;
     }
 
     .navegation a i, .navegation button i {       
