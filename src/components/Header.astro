@@ -48,9 +48,10 @@ header {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    height: 40px;
+    height: 26px;
     z-index: 10001;
 }
+
 .header-logo img {
     height: 100%;
     width: auto;
@@ -90,7 +91,7 @@ header {
 }
 
 .navegation i {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .dropdown-trigger {
@@ -140,15 +141,19 @@ z-index: 9999;
     font-weight: 500;
 }
 
-@media (max-width: 1520px) {
+@media (max-width: 1100px) {
     .header-logo .logo-icon {
         display: block;
-        width: 40px;
+        width: 50px;
         height: auto;
     }
 
     .header-logo .logo-full {
         display: none;
+    }
+
+    .header-logo {
+        height: 50px;
     }
 }
 
@@ -165,7 +170,6 @@ z-index: 9999;
     .navegation {
         gap: 16px;
         justify-content: center;
-        padding-top: 6px;
     }
 
     .dropdown-content a .text {

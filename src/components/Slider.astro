@@ -40,6 +40,8 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 .slider .slide-track {
     display: flex;
     animation: scroll 40s linear infinite;
+    gap: 40px;
+    padding: 20px 0;
 }
 
 .slide {
@@ -51,29 +53,18 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 
 .slide img {
     max-width: 200px;
-    display: block;
+    height: 80px;
+    object-fit: contain;
+    transition: 0.2s ease;
 }
 
 @keyframes scroll{
     0% {
-        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
     100% {
-        -webkit-transform: translateX(calc(-200px * 7));
-        transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-240px * 7));
     }
-}
-
-.slide-track {
-    gap: 40px;
-    padding: 20px 0;
-}
-
-.slide-track img {
-    height: 80px;
-    object-fit: contain;
-    transition: 0.2s ease;
 }
 
 .slide-track img:hover {
@@ -83,7 +74,6 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 
 <script type="module">
     // SLIDER MARCAS
-
 	document.addEventListener("DOMContentLoaded", () => {
 		const track = document.querySelector('.slide-track');
 		if (!track) return;
