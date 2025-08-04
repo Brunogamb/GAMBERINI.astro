@@ -5,26 +5,41 @@ import logoicon from '/public/img/faviconblanco.png';
 ---
 
 <header>
-    <div class="header-logo">
-        <a href="/GAMBERINI.astro/">
-            <Image src={logofull} alt="Logo blanco Gamberini" loading="eager" class="logo-full"/>
-            <Image src={logoicon} alt="Logo blanco Gamberini icono" loading="eager" class="logo-icon"/>
-        </a>
-    </div>
-    <nav class="navegation">
-        <a href="/GAMBERINI.astro/"><i class="fas fa-home"></i><span class="text">Inicio</span></a>
-        <div class="dropdown">
-            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-cogs"></i><span class="text">Servicios</span><i class="fas fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-            <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
-            <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
-            <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
-            </div>
+    <div class="top-bar">
+        <div class="header-logo">
+            <a href="/GAMBERINI.astro/">
+                <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
+                <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
+            </a>
         </div>
-        <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
+        
+        <nav class="top-nav">
+            <ul>
+                <!--<li><a href="/GAMBERINI.astro/"><i class="fas fa-home"></i><span class="text">Inicio</span></a><li/>-->
+                <li>
+                    <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="divider-horizontal"></div>
+
+    <nav class="services-nav">
+        <ul>
+            <li>
+                <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
+            </li>
+            <li>
+                <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
+            </li>
+            <li>
+                <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
+                </a>
+            </li>
+        </ul>
     </nav>
+    <!--<div class="divider-horizontal"></div>-->
 </header>
 
 <style>
@@ -32,24 +47,35 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     z-index: 10000;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 60px;
-    padding: 0 20px; 
+    justify-content: center;
+    height: 128px;
+    padding: 0 20px;
+}
+
+.divider-horizontal {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background: #a793e7;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
 }
 
 .header-logo {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     height: 26px;
-    z-index: 10001;
 }
 
 .header-logo img {
@@ -57,117 +83,69 @@ header {
     width: auto;
 }
 
-.header-logo.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 .logo-icon{
     display: none;
 }
 
-.navegation {
+.top-nav ul, .services-nav ul {
+    list-style: none;
+    display: flex;
+    gap: inherit;
+}
+
+.top-nav {
     display: flex;
     gap: 24px;
 }
 
-.navegation a {
+.top-nav a {
     color: #f1f1f1;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: color 0.2s;
     cursor: pointer;
 }
 
-.navegation a:hover, .dropdown-trigger:hover {
+.top-nav a:hover {
     color: #a793e7;
 }
 
-.navegation i {
-    font-size: 18px;
+.top-nav i {
+    font-size: 16px;
 }
 
-.dropdown-trigger {
-	background: none;
-	border: none;
-	color: #f1f1f1;
-	font-weight: 500;
-	font-size: 18px;
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	cursor: pointer;
-	transition: color 0.2s;
-	padding: 0;
-	font-family: inherit;
+.services-nav {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: fixed;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff;
-    min-width: max-content;
-    padding: 4px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #29166f;
-    z-index: 9999;
-}
-
-.dropdown-content a {
+.services-nav a {
+    color: #f1f1f1;
+    font-weight: 400;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 15px;
-    color: #29166f;
-    text-decoration: none;
-    font-weight: 500;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 20px 0;    
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.services-nav a:hover {
+    color: #a793e7;
 }
 
-@media (max-width: 1100px) {
-    .header-logo .logo-icon {
-        display: block;
-        width: 50px;
-    }
-
-    .header-logo .logo-full {
-        display: none;
-    }
-
-    .header-logo {
-        height: 50px;
-    }
+.services-nav i {
+    font-size: 16px;
 }
 
-@media (max-width: 600px) {
-    .navegation a {       
-        padding: 0 16px;
-    }
-
+@media (max-width: 736px) {
     .text {
         display: none;
-    }
-
-    .navegation a i, .navegation button i {       
-        font-size: clamp(20px, 6vw, 24px);
-    }
-
-    .navegation {
-        gap: 16px;
-        justify-content: center;
     }
 
     .dropdown-content a .text {
@@ -179,5 +157,9 @@ header {
     .header-logo, .logo-icon {
         display: none;
     }
+}
+
+header > .divider-horizontal:last-of-type {
+    margin-bottom: 0;
 }
 </style>

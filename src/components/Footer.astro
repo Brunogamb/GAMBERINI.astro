@@ -5,11 +5,13 @@
     <div class="footer-content">
         <div class="footer-section">
             <h4>NAVEGACIÓN</h4>
-            <a href="/GAMBERINI.astro/">Inicio</a>
-            <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios">Sistema de protección contra incendios</a>
-            <a href="/GAMBERINI.astro/diseño-y-montaje">Diseño y montaje</a>
-            <a href="/GAMBERINI.astro/servicio-tecnico">Servicio técnico</a>
-            <a href="/GAMBERINI.astro/contacto">Contacto</a>
+            <ul>
+                <li><a href="/GAMBERINI.astro/">Inicio</a></li>
+                <li><a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios">Sistema de protección contra incendios</a></li>
+                <li><a href="/GAMBERINI.astro/diseño-y-montaje">Diseño y montaje</a></li>
+                <li><a href="/GAMBERINI.astro/servicio-tecnico">Servicio técnico</a></li>
+                <li><a href="/GAMBERINI.astro/contacto">Contacto</a></li>
+            </ul>
         </div>
         <div class="footer-section">
             <h4>UBICACIÓN</h4>
@@ -44,7 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0px;
+    padding: 20px 20px;
     margin-top: 20px;
     color: #f1f1f1;
 }
@@ -55,47 +57,44 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     align-items: center;
+    line-height: 1.5;
     gap: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
 }
 
 .footer-section {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
     align-self: flex-start;
+    padding: 10px 0 20px;
 }
 
 .footer-section a{
     width: fit-content;
-    cursor: pointer;
 }
 
 .footer-divider {
     width: 100%;
     height: 1px;
     background-color: #a793e7;
-    margin: 10px 0;
 }
 
 .footer-bottom {
-    margin-top: 20px;
+    padding-top: 20px;
     text-align: center;
     font-size: 14px;
     color: #f1f1f1;
-    max-width: 80%;
-}
-
-.footer-bottom p {
-    padding: 0 20px;
 }
 
 .dev-name {
-    margin-top: 10px;
+    padding-top: 10px;
     font-size: 14px;
     color: #f1f1f1;
-    font-weight: 300;
 }
 
 .dev-link {

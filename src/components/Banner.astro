@@ -57,9 +57,7 @@ const slides = [
 <style>
 .banner-carousel {
   position: relative;
-  width: 100dvw;
-  height: calc(100vh - 60px);
-  overflow: hidden;
+  height: calc(100dvh - 128px);
 }
 
 .carousel-track {
@@ -77,27 +75,25 @@ const slides = [
   background-size: cover;
   background-position: center;
   color: #fff;
-  position: relative;
 }
 
 .banner-text {
   background: linear-gradient(90deg, #29166fe1 20%, #3a2a8fe1 45%, #5145b6e1 75%);
   padding: 2rem;
-  border-radius: 20px;
+  border-radius: 16px;
   max-width: 700px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
 }
 
 .banner-text h2 {
-  font-size: 2.4rem;
+  font-size: 38px;
   font-weight: 700;
   margin-bottom: 18px;
   line-height: 1.1;
 }
 
 .banner-text p {
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: 20px;
   font-weight: 200;
   line-height: 1.5;
   color: #e4e0fa;
@@ -109,7 +105,7 @@ const slides = [
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 2rem 0 1rem;
+  padding: 0 1rem;
   transform: translateY(-50%);
   z-index: 10;
   pointer-events: none;
@@ -168,7 +164,7 @@ const slides = [
   background-color: #fff;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 780px) {
   .banner-text {
     max-width: 90%;
   }
