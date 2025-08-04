@@ -3,27 +3,39 @@ import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import { Image } from 'astro:assets';
 import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
+import NFPAMember from '../assets/img/NFPAMember.webp';
 ---
 
 <Layout title="Gamberini | Sistema de protección contra incendios">
 	<main>
-        <Title pageTitle="Sistemas de protección contra incendio" />
-        <div class="cards">
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-            <p>Con más de 15 años en el mercado, realizamos proyectos integrales de <span>sistemas de deteccion temprana y sistemas fijos</span> en base a agua, los cuales comprenden diseño y dimensionamiento personalizado para cada aplicación, montaje de instalaciones, start up y mantenimiento periódico bajo estrictas <span>normas internacionales.</span></p>
-        </div>
-        <div class="cards">
-            <p>Los <span>sistemas de detección temprana</span> utilizados para identificar a tiempo el inicio de incendios, permiten una respuesta rápida que puede salvar vidas y minimizar daños a sus instalaciones. Una detección oportuna marca la diferencia.</span></p>
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-        </div>
-        <div class="cards">
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-            <p>Para el conformado de nuestras redes de incendio, utilizamos cañería con extremos ranurados. Esto garantiza ensamblajes en tiempos más cortos, lo cual reduce de manera significativa la duracion de nuestras obras</p>
+        <div class="main-container">
+            <Title pageTitle="Sistemas de protección contra incendio" />
+            <div class="cards">
+                <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
+                <p>Con más de 15 años en el mercado, realizamos proyectos integrales de <span>sistemas de deteccion temprana y sistemas fijos</span> en base a agua, los cuales comprenden diseño y dimensionamiento personalizado para cada aplicación, montaje de instalaciones, start up y mantenimiento periódico bajo estrictas <span>normas internacionales.</span></p>
+            </div>
+            <div class="cards">
+                <p>Los <span>sistemas de detección temprana</span> utilizados para identificar a tiempo el inicio de incendios, permiten una respuesta rápida que puede salvar vidas y minimizar daños a sus instalaciones. Una detección oportuna marca la diferencia.</span></p>
+                <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
+            </div>
+            <div class="cards">
+                <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
+                <p>Para el conformado de nuestras redes de incendio, utilizamos cañería con extremos ranurados. Esto garantiza ensamblajes en tiempos más cortos, lo cual reduce de manera significativa la duracion de nuestras obras</p>
+            </div>
+            <Image src={NFPAMember} alt="NFPAMember" class="NFPAMember"></Image>
         </div>
     </main>
 </Layout>
 
 <style>
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
 .cards {
     display: flex;
     align-items: center;
@@ -58,6 +70,12 @@ import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
 
 .cards img:hover{
     transform: scale(1.03);
+}
+
+.NFPAMember {
+    max-height: 100px;
+    width: auto;
+    margin-top: 20px;
 }
 
 @media (max-width: 1190px) {

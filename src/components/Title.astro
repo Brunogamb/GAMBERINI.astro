@@ -19,9 +19,13 @@ const { pageTitle } = Astro.props;
 
 <style>
 .main-container {
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(0, 1200px) minmax(20px, 1fr);
     margin: 0 auto;
-    padding: 0 20px;
+}
+
+.main-container > * {
+    grid-column: 2;
 }
 
 .title {

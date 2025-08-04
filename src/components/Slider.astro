@@ -39,14 +39,13 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 
 .slider .slide-track {
     display: flex;
-    animation: scroll 40s linear infinite;
-    gap: 40px;
+    animation: scroll 30s linear infinite;
+    gap: 60px;
     padding: 20px 0;
 }
 
 .slide {
     flex: 0 0 auto;
-    margin-right: 20px; 
     display: flex;
     align-items: center;
 }
@@ -57,13 +56,9 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
     transition: 0.2s ease;
 }
 
-@keyframes scroll{
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-240px * 7));
-    }
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .slide-track img:hover {

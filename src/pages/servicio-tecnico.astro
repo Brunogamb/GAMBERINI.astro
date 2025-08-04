@@ -1,10 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
+import { Image } from 'astro:assets';
+import GrundfosTécnicoAutorizado from '../assets/img/GrundfosTécnicoAutorizado.webp';
+import WiloServicePartner from '../assets/img/WiloServicePartner.webp';
 ---
 
 <Layout title="Gamberini | Servicio tecnico">
 	<main>
         <Title pageTitle="Servicio técnico" />
+        <div class="main-container">
+            <Image src={GrundfosTécnicoAutorizado} alt="Grundfos Técnico Autorizado"></Image>
+            <Image src={WiloServicePartner} alt="Wilo Service Partner"></Image>
+        </div>
     </main>
 </Layout>
+
+<style>
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    .main-container img {
+        max-width: 250px;
+        height: auto;
+    }
+</style>
