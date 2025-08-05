@@ -18,6 +18,7 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
         <a class="slide" href="https://www.genebre.com.ar/" target="_blank"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
         <a class="slide" href="https://www.pedrollo.com/es/" target="_blank"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
         <a class="slide" href="https://rotorpump.com/" target="_blank"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
+        
         <a class="slide" href="https://wilo.com/ar/es/" target="_blank"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
         <a class="slide" href="https://www.grundfos.com/ar/" target="_blank"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
         <a class="slide" href="https://www.dabpumps.com/" target="_blank"><Image src={dab} alt="Logo 3" loading="lazy" /></a>
@@ -25,6 +26,9 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
         <a class="slide" href="https://www.genebre.com.ar/" target="_blank"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
         <a class="slide" href="https://www.pedrollo.com/es/" target="_blank"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
         <a class="slide" href="https://rotorpump.com/" target="_blank"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
+
+        <a class="slide" href="https://wilo.com/ar/es/" target="_blank"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
+        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
     </div>
 </div>
 
@@ -56,52 +60,70 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
     transition: 0.2s ease;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+@keyframes scroll{
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1592px);
+    }
 }
 
 .slide-track img:hover {
     transform: scale(1.08);
 }
+
+.slider:hover .slide-track {
+    animation-play-state: paused;
+}
 </style>
 
 <script type="module">
-	document.addEventListener("DOMContentLoaded", () => {
-		const track = document.querySelector('.slide-track');
-		if (!track) return;
+    document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector('.slide-track');
+        if (!track) return;
 
-		let isHovered = false;
-		let isVisible = true;
+        let isHovered = false;
+        let isVisible = true;
+        let scrollWidth = track.scrollWidth;
+        let duration = 30; 
+        let start = null;
 
-		function updateAnimationState() {
-			if (!isVisible || isHovered) {
-				track.style.animationPlayState = 'paused';
-			} else {
-				track.style.animationPlayState = 'running';
-			}
-		}
+        function animateScroll(timestamp) {
+            if (!start) start = timestamp;
+            const elapsed = (timestamp - start) / 1000;
+            if (!isHovered && isVisible) {
+                const progress = (elapsed % duration) / duration;
+                track.style.transform = `translateX(${-scrollWidth * progress}px)`;
+            }
+            requestAnimationFrame(animateScroll);
+        }
 
-		track.addEventListener('mouseenter', () => {
-			isHovered = true;
-			updateAnimationState();
-		});
-		track.addEventListener('mouseleave', () => {
-			isHovered = false;
-			updateAnimationState();
-		});
+        function updateScrollWidth() {
+            scrollWidth = track.scrollWidth;
+        }
 
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach(entry => {
-					isVisible = entry.isIntersecting;
-					updateAnimationState();
-				});
-			},
-			{ threshold: 0.1 }
-		);
-		observer.observe(track);
+        updateScrollWidth();
+        window.addEventListener('resize', updateScrollWidth);
 
-		updateAnimationState();
-	});
+        track.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+        track.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    isVisible = entry.isIntersecting;
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(track);
+
+        requestAnimationFrame(animateScroll);
+    });
+
 </script>
