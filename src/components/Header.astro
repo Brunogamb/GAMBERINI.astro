@@ -15,7 +15,6 @@ import logoicon from '/public/img/faviconblanco.png';
         
         <nav class="top-nav">
             <ul>
-                <!--<li><a href="/GAMBERINI.astro/"><i class="fas fa-home"></i><span class="text">Inicio</span></a><li/>-->
                 <li>
                     <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
                 </li>
@@ -39,12 +38,11 @@ import logoicon from '/public/img/faviconblanco.png';
             </li>
         </ul>
     </nav>
-    <!--<div class="divider-horizontal"></div>-->
 </header>
 
 <style>
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
@@ -157,9 +155,5 @@ header {
     .header-logo, .logo-icon {
         display: none;
     }
-}
-
-header > .divider-horizontal:last-of-type {
-    margin-bottom: 0;
 }
 </style>
