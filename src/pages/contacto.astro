@@ -112,7 +112,7 @@ import Title from '../components/Title.astro';
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .contact-card a:hover {
@@ -133,7 +133,7 @@ import Title from '../components/Title.astro';
     color: #25D366;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 736px) {
     .contact-section {
         flex-direction: column;
         align-items: center;
