@@ -4,8 +4,6 @@ import Header from '../components/Header.astro';
 import Slider from '../components/Slider.astro';
 import Footer from '../components/Footer.astro';
 
-import { ClientRouter} from 'astro:transitions';
-
 const { title } = Astro.props;
 ---
 
@@ -17,7 +15,6 @@ const { title } = Astro.props;
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		<link rel="icon" href="/GAMBERINI.astro/img/favicon.png" type="image/x-icon">
 		<title>{title}</title>
-		<ClientRouter />
 	</head>
 	<body>
 		<Header />
@@ -51,12 +48,20 @@ header, main, footer {
     width: 100%;
 }
 
-main {
-    flex: 1;
-}
-
 a {
     text-decoration: none;
     color: inherit;
+}
+
+main {
+	flex: 1;
+	opacity: 0;
+	animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
 }
 </style>
