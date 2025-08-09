@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import logofull from '../assets/img/logoblanco.png';
 import logoicon from '/public/img/faviconblanco.png';
+import logofullhover from '../assets/img/logohover.webp';
 ---
 
 <header>
@@ -10,15 +11,12 @@ import logoicon from '/public/img/faviconblanco.png';
             <a href="/GAMBERINI.astro/">
                 <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
                 <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
+                <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-hover" loading="eager" />
             </a>
         </div>
         
         <nav class="top-nav">
-            <ul>
-                <li>
-                    <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
-                </li>
-            </ul>
+            <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
         </nav>
     </div>
 
@@ -45,6 +43,7 @@ header {
     position: sticky;
     top: 0;
     left: 0;
+    width: 100%;
     background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     z-index: 10000;
@@ -86,7 +85,19 @@ header {
     display: none;
 }
 
-.top-nav ul, .services-nav ul {
+.logo-hover {
+    display: none;
+}
+
+.header-logo:hover .logo-full {
+    display: none;
+}
+
+.header-logo:hover .logo-hover {
+    display: inline;
+}
+
+.services-nav ul {
     list-style: none;
     display: flex;
     gap: inherit;
@@ -105,10 +116,6 @@ header {
     align-items: center;
     gap: 8px;
     cursor: pointer;
-}
-
-.top-nav a:hover {
-    color: #a793e7;
 }
 
 .top-nav i {
@@ -134,7 +141,7 @@ header {
     margin: 20px 0;    
 }
 
-.services-nav a:hover {
+.services-nav a:hover, .top-nav a:hover {
     color: #a793e7;
 }
 
