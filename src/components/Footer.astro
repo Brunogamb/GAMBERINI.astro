@@ -5,7 +5,7 @@
     <div class="footer-content">
 
         <div class="footer-section">
-            <h4>NAVEGACIÓN</h4>
+            <h4>Navegación</h4>
             <ul>
                 <li><a href="/GAMBERINI.astro/">Inicio</a></li>
                 <li><a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios">Sistema de protección contra incendios</a></li>
@@ -15,10 +15,16 @@
             </ul>
         </div>
 
-        <div class="footer-section">
-            <h4>UBICACIÓN</h4>
+        <div class="footer-section location">
+            <h4>Ubicación</h4>
             <a href="/GAMBERINI.astro/contacto">
-                Francisco Soler 1083<br>Paraná (3100)<br>Entre Ríos, Argentina
+                Francisco Soler 1083
+            </a>
+            <a href="/GAMBERINI.astro/contacto">
+                Paraná (3100)
+            </a>
+            <a href="/GAMBERINI.astro/contacto">
+                Entre Ríos, Argentina
             </a>
         </div>
 
@@ -58,10 +64,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     color: #f1f1f1;
     font-size: 16px;
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 .footer h4 {
@@ -76,24 +81,27 @@
     align-items: start;
 }
 
-.footer-section ul {
-    list-style: none;
-}
-
 .footer-section {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
     margin: 30px 0;
     width: 300px;
+    pointer-events: none;
+}
+
+.footer-section ul {
+    list-style: none;
 }
 
 .footer-section a {
     line-height: 2;
+    width: fit-content;
+    pointer-events: auto; 
 }
 
-.footer-section a {
-    width: fit-content;
+.location:hover a {
+    color: #a793e7;
 }
 
 .footer-divider {
@@ -106,7 +114,7 @@
 }
 
 .footer-bottom {
-    margin: 30px 0;
+    margin: 30px 0 10px 0;
     text-align: center;
     color: rgba(241, 241, 241, 0.85);
     font-size: 14px;
