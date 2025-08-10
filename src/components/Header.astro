@@ -1,39 +1,50 @@
 ---
 import { Image } from 'astro:assets';
-import logofull from '../assets/img/logoblanco.png';
-import logoicon from '/public/img/faviconblanco.png';
+import logofull from '../assets/img/logoblanco.webp';
 import logofullhover from '../assets/img/logohover.webp';
+import logoicon from '/public/img/faviconblanco.webp';
+import logoiconhover from '/public/img/faviconblancohover.webp';
 ---
 
 <header>
     <div class="top-bar">
-        <div class="header-logo">
-            <a href="/GAMBERINI.astro/">
-                <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
-                <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
-                <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-hover" loading="eager" />
-            </a>
+        <div class="menu-logo">
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-logo">
+                <a href="/GAMBERINI.astro/">
+                    <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
+                    <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
+                    <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
+                    <Image src={logoiconhover} alt="Icono hover Gamberini" class="logo-icon-hover" loading="eager" />
+                </a>
+            </div>
         </div>
-        
+
         <nav class="top-nav">
             <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
         </nav>
     </div>
 
-    <div class="divider-horizontal"></div>
-
-    <nav class="services-nav">
+    <div class="horizontal-divider"></div>
+    
+    <nav class="services-nav desktop-menu">
         <ul>
-            <li>
-                <a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a>
-            </li>
-            <li>
-                <a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a>
-            </li>
-            <li>
-                <a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a>
-                </a>
-            </li>
+            <li><a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a></li>
+            <li><a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a></li>
+            <li><a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a></li>
+        </ul>
+    </nav>
+    
+    <nav class="services-nav mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul>
+            <li><a href="/GAMBERINI.astro/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a></li>
+            <li><a href="/GAMBERINI.astro/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a></li>
+            <li><a href="/GAMBERINI.astro/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a></li>
         </ul>
     </nav>
 </header>
@@ -55,7 +66,7 @@ header {
     padding: 0 20px;
 }
 
-.divider-horizontal {
+.horizontal-divider {
     width: 100%;
     max-width: 1200px;
     height: 1px;
@@ -85,7 +96,7 @@ header {
     display: none;
 }
 
-.logo-hover {
+.logo-full-hover, .logo-icon-hover {
     display: none;
 }
 
@@ -93,7 +104,7 @@ header {
     display: none;
 }
 
-.header-logo:hover .logo-hover {
+.header-logo:hover .logo-full-hover {
     display: inline;
 }
 
@@ -149,19 +160,199 @@ header {
     font-size: 16px;
 }
 
+.hamburger {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0; 
+    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
+    z-index: 15000;
+    padding: 40px 20px;
+    backdrop-filter: blur(8px);
+    animation: fadeInMenu 0.3s ease forwards;
+}
+
+@keyframes fadeInMenu {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
 @media (max-width: 736px) {
+    .top-nav i {
+        font-size: 21px;
+    }
+
+    .header-logo {
+        height: 22px;
+    }
+
+    .top-nav a {
+        font-size: 28px;
+        margin-left: 20px;
+    }
+
     .text {
         display: none;
     }
 
-    .dropdown-content a .text {
+    .horizontal-divider {
         display: none;
+    }
+
+    .hamburger:hover span {
+        background: #a793e7;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .menu-logo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 28px;
+        height: 22px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 16000;
+    }
+
+    .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: #f1f1f1;
+        border-radius: 2px;
+        transition: all 0.3s linear;
+        transform-origin: 4px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .mobile-menu .text {
+        display: inline;
+        font-size: 1.4rem;
+    }
+
+    .mobile-menu i {
+        font-size: 1.4rem;
+    }
+
+    header {
+        min-height: 80px;
+        height: 80px;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+        height: 100dvh;
+    }
+
+    html, body {   
+        overflow-x: hidden;
     }
 }
 
-@media (max-width: 360px) {
-    .header-logo, .logo-icon {
+@media (max-width: 500px) {
+    .top-bar {
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .header-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 368px) {
+    .logo-full{
         display: none;
+    }
+
+    .logo-icon {
+        display: flex;
+    }
+
+    .header-logo:hover .logo-full-hover{
+        display: none;
+    }
+
+    .header-logo:hover .logo-icon{
+        display: none;
+    }
+
+    .header-logo:hover .logo-icon-hover {
+        display: inline;
+    }
+
+    .header-logo {
+        height: 40px;
     }
 }
 </style>
+
+<script type="module">
+    const btnHamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const btnClose = document.querySelector('.close-menu');
+    const body = document.body;
+
+    btnHamburger.addEventListener('click', () => {
+        const expanded = btnHamburger.getAttribute('aria-expanded') === 'true' || false;
+        btnHamburger.setAttribute('aria-expanded', !expanded);
+        btnHamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        mobileMenu.setAttribute('aria-hidden', expanded);
+        body.classList.toggle('menu-open');
+    });
+
+    btnClose.addEventListener('click', () => {
+        btnHamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenu.setAttribute('aria-hidden', true);
+        body.classList.remove('menu-open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (mobileMenu.classList.contains('active')) {
+            if (!mobileMenu.contains(e.target) && !btnHamburger.contains(e.target)) {
+                btnClose.click();
+            }
+        }
+    });
+</script>
