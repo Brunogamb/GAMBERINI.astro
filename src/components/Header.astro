@@ -9,12 +9,6 @@ import logoiconhover from '/public/img/faviconblancohover.webp';
 <header>
     <div class="top-bar">
         <div class="menu-logo">
-            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
             <div class="header-logo">
                 <a href="/GAMBERINI.astro/">
                     <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
@@ -25,9 +19,16 @@ import logoiconhover from '/public/img/faviconblancohover.webp';
             </div>
         </div>
 
-        <nav class="top-nav">
-            <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
-        </nav>
+        <div class="right-bar">
+            <nav class="top-nav">
+                <a href="/GAMBERINI.astro/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
+            </nav>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 
     <div class="horizontal-divider"></div>
@@ -51,7 +52,7 @@ import logoiconhover from '/public/img/faviconblancohover.webp';
 
 <style>
 header {
-    position: sticky;
+    position: ;
     top: 0;
     left: 0;
     width: 100%;
@@ -72,7 +73,7 @@ header {
     height: 1px;
     background: linear-gradient(to right, #a793e7 0%, #f1f1f1 100%);
     opacity: 0.6;
-}
+} 
 
 .top-bar {
     display: flex;
@@ -131,6 +132,11 @@ header {
 
 .top-nav i {
     font-size: 16px;
+}
+
+.right-bar {
+    display: flex;
+    gap: 20px;
 }
 
 .services-nav {
@@ -194,8 +200,13 @@ header {
         margin-left: 20px;
     }
 
-    .text {
+    .top-bar {
+        z-index: 16001;
+    }
+
+    .text{
         display: none;
+        text-wrap: balance;
     }
 
     .horizontal-divider {
@@ -257,18 +268,32 @@ header {
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         margin: auto;
     }
 
+    .mobile-menu a {
+        gap: 20px;
+        padding: 12px 18px;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+
+    .mobile-menu a:hover {
+        background: rgba(167,147,231,0.18);
+        color: #a793e7;
+    }
+
     .mobile-menu .text {
-        display: inline;
+        display: flex;
         font-size: 1.4rem;
+        word-break: break-word;
+        text-align: left;
+        flex: 1;
     }
 
     .mobile-menu i {
         font-size: 1.4rem;
+        text-align: left;
     }
 
     header {
@@ -286,20 +311,7 @@ header {
     }
 }
 
-@media (max-width: 500px) {
-    .top-bar {
-        position: relative;
-        justify-content: space-between;
-    }
-
-    .header-logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-@media (max-width: 368px) {
+@media (max-width: 380px) {
     .logo-full{
         display: none;
     }
