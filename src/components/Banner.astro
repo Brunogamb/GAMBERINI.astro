@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 
-import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
-import diseñoMontajeImg from '../assets/img/diseño-montaje.webp';
-import servicioTecnicoImg from '../assets/img/servicio-tecnico.webp';
+import sistemaIncendiosImg from '../assets/banner/sistema-incendios.webp';
+import diseñoMontajeImg from '../assets/banner/diseño-montaje.webp';
+import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
 
 const slides = [
     {
@@ -36,7 +36,6 @@ const slides = [
       <a href={slide.href} class="carousel-slide" aria-label={`Ir a ${slide.alt}`}
         style={{ backgroundImage: `url(${slide.image.src})` }}>
         <div class="banner-text">
-          <div class="title-divider"></div>
           <h2>{slide.title}</h2>
           <p>{slide.description}</p>
         </div>
@@ -84,7 +83,7 @@ const slides = [
   max-width: 700px;
   backdrop-filter: blur(6px);
   word-break: break-word;
-  text-wrap: balance
+  text-wrap: balance;
 }
 
 .banner-text h2 {

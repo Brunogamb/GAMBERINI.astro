@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
+import Hero from "../components/Hero.astro";
 import { Image } from 'astro:assets';
-import sistemaIncendiosImg from '../assets/img/sistema-incendios.webp';
+import sistemaIncendiosImg from '../assets/banner/sistema-incendios.webp';
 import NFPAMember from '../assets/img/NFPAMember.webp';
 ---
 
 <Layout title="Gamberini | Sistema de protección contra incendios">
 	<main>
-        <Title pageTitle="Sistemas de protección contra incendio" />
+        <!-- <Title pageTitle="Sistemas de protección contra incendio" /> -->
+        <Hero />
 
         <div class="cards">
             <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
@@ -41,7 +43,7 @@ main {
 .cards {
     display: flex;
     align-items: center;
-    border-radius: 60px;
+    border-radius: 16px;
     padding: 20px;
     margin: 20px auto;
     max-width: 1200px;
@@ -66,7 +68,7 @@ main {
     width: 100%;
     max-width: 500px;
     height: auto;
-    border-radius: 40px;
+    border-radius: 16px;
     box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
 }

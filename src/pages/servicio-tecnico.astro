@@ -1,32 +1,134 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
+import Hero from "../components/Hero.astro";
 import { Image } from 'astro:assets';
-import GrundfosTécnicoAutorizado from '../assets/img/GrundfosTécnicoAutorizado.webp';
-import WiloServicePartner from '../assets/img/WiloServicePartner.webp';
+import GrundfosTécnicoAutorizado from '../assets/service/GrundfosTécnicoAutorizado.webp';
+import WiloServicePartner from '../assets/service/WiloServicePartner.webp';
+import servicioTecnicoImg1 from '../assets/service/servicio-tecnico (1).webp';
+import servicioTecnicoImg2 from '../assets/service/servicio-tecnico (2).webp';
+import servicioTecnicoImg3 from '../assets/service/servicio-tecnico (3).webp';
+import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
 ---
 
 <Layout title="Gamberini | Servicio tecnico">
 	<main>
-        <Title pageTitle="Servicio técnico" />
-        <div class="main-container">
-            <Image src={GrundfosTécnicoAutorizado} alt="Grundfos Técnico Autorizado"></Image>
-            <Image src={WiloServicePartner} alt="Wilo Service Partner"></Image>
+        <!-- <Title pageTitle="Servicio técnico" /> -->
+        <Hero />
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img">
+                    <Image src={servicioTecnicoImg1} alt="Servicio Técnico Gamberini" />
+                </div>
+                <div class="card-text">
+                    <p>Somos <span>agente de servicio técnico autorizado</span> y <span>subfactory</span> de Grundfos en Argentina. Brindamos soporte oficial, mantenimiento y reparación de equipos Grundfos, garantizando la máxima calidad y respaldo directo de fábrica para tus sistemas hidráulicos.</p>
+                </div>
+                <Image src={GrundfosTécnicoAutorizado} alt="Grundfos Técnico Autorizado" class="service-logos" />
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <Image src={servicioTecnicoImg2} alt="Servicio Técnico Gamberini" />
+                </div>
+                <div class="card-text">
+                    <p>Como <span>servicio técnico oficial</span> y <span>partner certificado</span> de Wilo, ofrecemos atención especializada, instalación y soporte postventa para toda la línea de productos Wilo. Nuestra experiencia asegura soluciones eficientes y confiables para tus proyectos de bombeo.</p>
+                </div>
+                <Image src={WiloServicePartner} alt="Wilo Service Partner" class="service-logos"/>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <Image src={servicioTecnicoImg3} alt="Servicio Técnico Gamberini" />
+                </div>
+                <div class="card-text">
+                    <p>Brindamos <span>soporte integral post-venta</span>, atención rápida ante <span>emergencias</span> y <span>asesoramiento personalizado</span> para garantizar la continuidad operativa de tus sistemas contra incendios y agua.</p>
+                </div>
+            </div>
         </div>
     </main>
 </Layout>
 
 <style>
-    .main-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px
-    }
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-    .main-container img {
-        max-width: 250px;
-        height: auto;
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1240px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.card-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-img img {
+    transform: scale(1.05);
+}
+
+.card-text p {
+    padding: 32px;
+    font-weight: 300;
+    font-size: 22px;
+    color: #232323;
+    line-height: 1.6;
+    text-wrap: balance;
+}
+
+.card-text p span {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #29166f;
+}
+
+.service-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto 20px auto;
+    max-height: 84px;
+    height: 100%;
+    width: auto;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+@media (max-width: 356px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 3fr));
     }
+}
 </style>
