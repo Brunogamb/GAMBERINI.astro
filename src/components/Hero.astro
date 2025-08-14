@@ -1,18 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
+
+export interface Props {
+    title: string;
+    description: string;
+    image: any;
+    alt?: string;
+}
+
+const { title, description, image, alt } = Astro.props;
 ---
 
 <main>
     <section class="banner-hero">
         <div class="banner-hero-img">
-            <Image src={servicioTecnicoImg} alt="Servicio Técnico Gamberini"/>
+            <Image src={image} alt={alt || title}/>
             <div class="banner-hero-overlay"></div>
             <div class="banner-text">
-                <h1>Servicio Técnico</h1>
-                <p>Mantenimiento, reparación y soporte técnico para asegurar el óptimo funcionamiento de sus equipos de bombeo.</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </div>
+            </a>
         </div>
     </section>
 </main>
@@ -60,16 +68,30 @@ import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
 }
 
 .banner-text h1 {
-    font-size: 38px;
+    font-size: clamp(18px, 8vw, 38px);
     font-weight: 700;
     margin-bottom: 18px;
     line-height: 1.1;
 }
 
 .banner-text p {
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     font-weight: 200;
     line-height: 1.5;
     color: #e4e0fa;
+}
+
+@media (max-width: 736px) {
+    .banner-text {
+        width: 100%;
+    }
+
+    .banner-text p{
+        display: none;
+    }
+
+    .banner-text h1 {
+        margin: auto;
+    }
 }
 </style>

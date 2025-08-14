@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from "../components/Hero.astro";
+
+import { Image } from 'astro:assets';
+import contacto from '../assets/service/servicio-tecnico (3).webp';
 ---
 
 
 <Layout title="Gamberini | Contacto">
 	<main>
-        <Hero />
+        <Hero title='Contacto' description='Comunicate con nuestro equipo para recibir asesoramiento personalizado y respuestas rápidas a todas tus consultas.' image={contacto}/>
 
         <section class="contact-section">
             <div class="contact-left">

@@ -12,7 +12,7 @@ import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
 
 <Layout title="Gamberini | Servicio tecnico">
 	<main>
-        <Hero />
+        <Hero title='Servicio Técnico' description='Mantenimiento, reparación y soporte técnico para asegurar el óptimo funcionamiento de sus equipos de bombeo.' image={servicioTecnicoImg}/>
 
         <div class="cards-grid">
             <div class="card">
@@ -100,10 +100,10 @@ main {
 .card-text p {
     padding: 32px;
     font-weight: 300;
-    font-size: 22px;
     color: #232323;
     line-height: 1.6;
     text-wrap: balance;
+    font-size: clamp(16px, 3vw, 18px);
 }
 
 .card-text p span {
