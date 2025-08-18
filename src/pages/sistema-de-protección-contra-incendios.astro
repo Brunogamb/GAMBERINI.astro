@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from "../components/Hero.astro";
+import CardGrid from '../components/CardGrid.astro';
+import Card from '../components/Card.astro';
 import { Image } from 'astro:assets';
 import sistemaIncendiosImg from '../assets/banner/sistema-incendios.webp';
 import NFPAMember from '../assets/img/NFPAMember.webp';
@@ -10,22 +12,13 @@ import NFPAMember from '../assets/img/NFPAMember.webp';
 	<main>
         <Hero title='Sistema de protección contra incendios' description='Soluciones profesionales en sistemas de protección contra incendios, diseñados e instalados bajo normas IRAM y NFPA para máxima seguridad y confiabilidad.' image={sistemaIncendiosImg}/>
 
-        <div class="cards">
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-            <p>Con más de 15 años en el mercado, realizamos proyectos integrales de <span>sistemas de deteccion temprana y sistemas fijos</span> en base a agua, los cuales comprenden diseño y dimensionamiento personalizado para cada aplicación, montaje de instalaciones, start up y mantenimiento periódico bajo estrictas <span>normas internacionales.</span></p>
-        </div>
+        <CardGrid>
+            <Card image={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" text="Con más de 15 años en el mercado, realizamos proyectos integrales de <span>sistemas de deteccion temprana y sistemas fijos</span> en base a agua, los cuales comprenden diseño y dimensionamiento personalizado para cada aplicación, montaje de instalaciones, start up y mantenimiento periódico bajo estrictas <span>normas internacionales.</span>" />
 
-        <div class="cards">
-            <p>Los <span>sistemas de detección temprana</span> utilizados para identificar a tiempo el inicio de incendios, permiten una respuesta rápida que puede salvar vidas y minimizar daños a sus instalaciones. Una detección oportuna marca la diferencia.</span></p>
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-        </div>
+            <Card image={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" text="Los <span>sistemas de detección temprana</span> utilizados para identificar a tiempo el inicio de incendios, permiten una respuesta rápida que puede salvar vidas y minimizar daños a sus instalaciones. Una detección oportuna marca la diferencia.</span>" logo={NFPAMember} logoAlt="NFPAMember" />
 
-        <div class="cards">
-            <Image src={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" />
-            <p>Para el conformado de nuestras redes de incendio, utilizamos cañería con extremos ranurados. Esto garantiza ensamblajes en tiempos más cortos, lo cual reduce de manera significativa la duracion de nuestras obras.</p>
-        </div>
-        
-        <Image src={NFPAMember} alt="NFPAMember" class="NFPAMember"></Image>
+            <Card image={sistemaIncendiosImg} alt="Sistema de Protección Contra Incendios" text="Para el conformado de nuestras redes de incendio, utilizamos cañería con extremos ranurados. Esto garantiza ensamblajes en tiempos más cortos, lo cual reduce de manera significativa la duracion de nuestras obras." />
+        </CardGrid>
     </main>
 </Layout>
 
@@ -38,65 +31,4 @@ main {
     margin: auto;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    border-radius: 16px;
-    padding: 0 20px;
-    max-width: 1240px;
-}
-
-.cards p {
-    font-weight: 200;
-    font-size: clamp(16px, 1.5vw, 22px);
-    padding: clamp(20px, 6vw, 60px);
-    color: #232323;
-    line-height: 1.5;
-    text-wrap: balance;
-}
-
-.cards p span{
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #232323;
-}
-
-.cards img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
-
-.cards img:hover{
-    transform: scale(1.03);
-}
-
-.NFPAMember {
-    max-height: 100px;
-    width: auto;
-    margin-top: 20px;
-}
-
-@media (max-width: 1190px) {
-    .cards {
-        flex-direction: column;
-    }
-
-    .cards img {
-        order: -1;
-    }
-
-    .cards  {
-        max-width: 760px;
-    }
-}
-
-@media (max-width: 600px) {
-    .cards img {
-        max-width: 300px;
-    }
-}
 </style>

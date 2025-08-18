@@ -1,0 +1,24 @@
+---
+---
+
+<div class="cards-grid">
+    <slot />
+</div>
+
+<style>
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1240px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 356px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 3fr));
+    }
+}
+</style>
