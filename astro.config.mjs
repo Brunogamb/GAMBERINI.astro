@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://github.com/Brunogamb",
-    base: "/GAMBERINI.astro",
+    site: "https://gamberini.com.ar/",
 });
