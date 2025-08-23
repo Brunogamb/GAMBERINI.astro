@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 import sistemaIncendiosImg from '../assets/banner/sistema-incendios.webp';
 import diseñoMontajeImg from '../assets/banner/diseño-montaje.webp';
 import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
@@ -42,13 +40,15 @@ const slides = [
       </a>
     ))}
   </div>
+
   <div class="carousel-controls">
     <button id="prev" aria-label="Diapositiva anterior">&#10094;</button>
     <button id="next" aria-label="Siguiente diapositiva">&#10095;</button>
   </div>
-  <div class="carousel-dots" id="carousel-dots">
+
+  <div class="progress-bars" id="progress-bars">
     {slides.map((_, i) => (
-      <button class="dot" aria-label={`Ir a la diapositiva ${i + 1}`} data-index={i}></button>
+      <div class="progress-bar"><div class="progress-fill" data-index={i}></div></div>
     ))}
   </div>
 </div>
@@ -57,6 +57,7 @@ const slides = [
 .banner-carousel {
   position: relative;
   height: calc(100dvh - 128px);
+  overflow: hidden;
 }
 
 .carousel-track {
@@ -103,75 +104,93 @@ const slides = [
 .carousel-controls {
   position: absolute;
   top: 50%;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 20;
+  opacity: 1;
   pointer-events: none;
 }
 
 .carousel-controls button {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: auto;
+}
+
+.carousel-controls button {
+  background: rgba(20, 20, 30, 0.55); 
+  border: none; 
   color: #fff;
-  width: 60px;
-  height: 60px;
-  font-size: 30px;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
   cursor: pointer;
   border-radius: 50%;
-  pointer-events: auto;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(6px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.18);
+  opacity: 0.85;
+  pointer-events: auto;
+  position: relative;
 }
 
 .carousel-controls button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
+  background: rgba(30, 30, 30, 0.85);
+  border: 2px solid #fff;
+  transform: scale(1.12);
+  opacity: 1;
 }
 
-.carousel-dots {
+.progress-bars {
   position: absolute;
-  bottom: 15px;
-  width: 100%;
-  text-align: center;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  width: 80%;
+  max-width: 280px;
   z-index: 15;
 }
 
-.carousel-dots .dot {
-  cursor: pointer;
-  height: 14px;
-  width: 14px;
-  margin: 0 6px;
-  background-color: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  display: inline-block;
-  border: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(6px);
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-.carousel-dots .dot:hover {
-  background-color: rgba(255,255,255,0.8);
-  transform: scale(1.1);
-}
-
-.carousel-dots .dot.active {
-  background-color: #fff;
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 2px;
 }
 
 @media (max-width: 736px) {
   .banner-carousel {
-    overflow: hidden;
     height: calc(100dvh - 80px);
   }
+
+  .carousel-controls {
+    top: auto;
+    bottom: 18px;
+  }
+
+  .carousel-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
   .banner-text {
-    max-width: 90%;
+    margin: 32px 8px 64px 8px;
   }
 }
 </style>
@@ -180,26 +199,43 @@ const slides = [
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById("banner-track");
   const slides = track.querySelectorAll(".carousel-slide");
-  const dots = document.querySelectorAll(".carousel-dots .dot");
   const total = slides.length;
+  const fills = document.querySelectorAll(".progress-fill");
+
   let index = 0;
   let autoplayInterval;
+  const duration = 7000; 
 
   function updateSlide() {
     track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[index].classList.add("active");
+    resetProgress();
   }
 
   function startAutoplay() {
     autoplayInterval = setInterval(() => {
       index = (index + 1) % total;
       updateSlide();
-    }, 7000);
+    }, duration);
+    resetProgress();
   }
 
   function stopAutoplay() {
     clearInterval(autoplayInterval);
+  }
+
+  function resetProgress() {
+    fills.forEach((fill, i) => {
+      fill.style.width = "0%";
+      fill.style.transition = "none";
+    });
+    void document.body.offsetWidth;
+
+    fills.forEach((fill, i) => {
+      if (i === index) {
+        fill.style.transition = `width ${duration}ms linear`;
+        fill.style.width = "100%";
+      }
+    });
   }
 
   document.getElementById("next").addEventListener("click", () => {
@@ -210,13 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("prev").addEventListener("click", () => {
     index = (index - 1 + total) % total;
     updateSlide();
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener("click", (e) => {
-      index = Number(e.target.dataset.index);
-      updateSlide();
-    });
   });
 
   let startX = 0;
@@ -230,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   track.addEventListener("touchend", (e) => {
     if (!isSwiping) return;
-
     const endX = e.changedTouches[0].clientX;
     const diffX = startX - endX;
 
