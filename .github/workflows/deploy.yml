@@ -1,0 +1,21 @@
+name: Deploy to Neolo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Neolo via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.NEOLO_HOST }}
+          username: ${{ secrets.NEOLO_USER }}
+          password: ${{ secrets.NEOLO_PASS }}
+          local-dir: ./dist
