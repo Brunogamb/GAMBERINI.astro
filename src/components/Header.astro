@@ -342,7 +342,6 @@ header {
 <script type="module">
     const btnHamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const btnClose = document.querySelector('.close-menu');
     const body = document.body;
 
     btnHamburger.addEventListener('click', () => {
@@ -354,17 +353,13 @@ header {
         body.classList.toggle('menu-open');
     });
 
-    btnClose.addEventListener('click', () => {
-        btnHamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        mobileMenu.setAttribute('aria-hidden', true);
-        body.classList.remove('menu-open');
-    });
-
     document.addEventListener('click', (e) => {
         if (mobileMenu.classList.contains('active')) {
             if (!mobileMenu.contains(e.target) && !btnHamburger.contains(e.target)) {
-                btnClose.click();
+                btnHamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenu.setAttribute('aria-hidden', true);
+                body.classList.remove('menu-open');
             }
         }
     });
