@@ -9,14 +9,14 @@ import logoiconhover from '/public/img/faviconblancohover.webp';
 <header>
     <div class="top-bar">
         <div class="menu-logo">
-            <div class="header-logo">
+            <h1 class="header-logo">
                 <a href="/">
                     <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
                     <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
                     <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
                     <Image src={logoiconhover} alt="Icono hover Gamberini" class="logo-icon-hover" loading="eager" />
                 </a>
-            </div>
+            </h1>
         </div>
 
         <div class="right-bar">
@@ -336,6 +336,13 @@ header {
     .header-logo {
         height: 40px;
     }
+}
+/* Reset para que h1.header-logo no cambie el diseño del logo */
+h1.header-logo {
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: normal;
 }
 </style>
 

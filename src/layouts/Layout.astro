@@ -10,14 +10,29 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="es">
 	<head>
+		<title>{title}</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="theme-color" content="#29166f">
 		<meta name="msapplication-navbutton-color" content="#29166f">
 		<meta name="apple-mobile-web-app-status-bar-style" content="#29166f">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+		<meta name="description" content="Gamberini Bombas: más de 20 años de experiencia en Paraná, Entre Ríos. Especialistas en comercialización, instalación y mantenimiento de sistemas de bombeo de agua, protección contra incendios, diseño y montaje de instalaciones hidráulicas y servicio técnico oficial Grundfos. Soluciones para particulares, empresas, industrias y organismos públicos. Atención personalizada, calidad y respaldo técnico en cada proyecto.">
+		<meta name="keywords" content="Gamberini Bombas, sistemas de bombeo, bombas de agua, instalación, mantenimiento, Grundfos, servicio técnico oficial, Entre Ríos, Paraná, hidráulica, bombas centrífugas, sumergibles, presurizadoras, protección contra incendios, diseño y montaje, servicio técnico, accesorios, soluciones hidráulicas, Argentina, NFPA, IRAM, industrias, consorcios, obras hidráulicas">
+		<meta name="author" content="Gamberini Bombas">
+		<meta name="robots" content="index, follow">
+		<!-- Open Graph -->
+		<meta property="og:title" content="Gamberini Bombas - Bombas de Agua, Protección Contra Incendios y Servicio Técnico Grundfos">
+		<meta property="og:description" content="Soluciones en sistemas de bombeo, protección contra incendios, diseño y montaje de instalaciones hidráulicas y servicio técnico oficial Grundfos en Paraná, Entre Ríos. Más de 20 años de experiencia y atención personalizada.">
+		<meta property="og:image" content="/img/logoblanco.webp">
+		<meta property="og:url" content="https://www.gamberini.com.ar/">
+		<meta property="og:type" content="website">
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Gamberini Bombas - Bombas de Agua, Protección Contra Incendios y Servicio Técnico Grundfos">
+		<meta name="twitter:description" content="Más de 20 años brindando soluciones hidráulicas, instalación y mantenimiento de bombas de agua, protección contra incendios y servicio técnico Grundfos en Paraná, Entre Ríos.">
+		<meta name="twitter:image" content="/img/logoblanco.webp">
 		<link rel="icon" href="/img/favicon.webp" type="image/x-icon">
-		<title>{title}</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	</head>
 	<body>
 		<Header />
