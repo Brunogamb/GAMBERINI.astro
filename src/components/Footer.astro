@@ -52,7 +52,7 @@
         <div class="footer-divider"></div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Gamberini. Todos los derechos reservados. Imágenes y marcas de terceros pertenecen a sus respectivos dueños.</p>
+        <p>&copy; <span id="year">{new Date().getFullYear()}</span> Gamberini. Todos los derechos reservados. Imágenes y marcas de terceros pertenecen a sus respectivos dueños.</p>
         <p class="dev-name">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank" class="dev-link">BrunoGamb</a></p>
     </div>
 </footer>
@@ -98,7 +98,8 @@ footer h3 {
 .footer-section a {
     line-height: 2;
     width: fit-content;
-    pointer-events: auto; 
+    pointer-events: auto;
+    white-space: nowrap;
 }
 
 .location:hover a {
