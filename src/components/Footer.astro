@@ -77,12 +77,9 @@ footer h3 {
 .footer-content {
     max-width: 1200px;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    column-gap: 48px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    align-items: start;
 }
 
 .footer-section {
@@ -114,7 +111,7 @@ footer h3 {
     height: 1px;
     background: linear-gradient(to right, #a793e7 0%, #f1f1f1 100%);
     opacity: 0.6;
-    margin: 0 auto;
+    grid-column: 1 / -1;
 }
 
 .footer-bottom {
@@ -141,5 +138,12 @@ footer h3 {
 
 .redes .fa-instagram {
     font-size: 26px;
+}
+
+@media (max-width: 736px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
 }
 </style>
