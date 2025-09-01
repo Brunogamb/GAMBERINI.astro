@@ -14,7 +14,10 @@ const { image, alt, text, logo, logoAlt } = Astro.props;
 
 <div class="card">
     <div class="card-img">
-        <Image src={image} alt={alt || 'Card image'} />
+        <Image 
+            src={image} 
+            alt={alt || 'Card image'} 
+        />
     </div>
     <div class="card-text">
         <p set:html={text}></p>
@@ -44,11 +47,14 @@ const { image, alt, text, logo, logoAlt } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 384px;
+    height: 350px;
+    overflow: hidden;
 }
 
 .card-img img {
     width: 100%;
-    height: 350px;
+    height: auto;
     object-fit: cover;
     transition: transform 0.3s;
 }
