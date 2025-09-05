@@ -3,6 +3,7 @@ import '@fontsource-variable/onest';
 import Header from '../components/Header.astro';
 import Slider from '../components/Slider.astro';
 import Footer from '../components/Footer.astro';
+import logofull from '../assets/img/logoblanco.webp';
 
 const { title } = Astro.props;
 ---
@@ -25,7 +26,7 @@ const { title } = Astro.props;
 		<meta property="og:locale" content="es_AR">
 		<meta property="og:title" content="Gamberini - Bombas de Agua, Protección Contra Incendios y Servicio Técnico Grundfos">
 		<meta property="og:description" content="Gamberini: expertos en bombas de agua y sistemas contra incendios en Paraná. Soluciones seguras, eficientes y a medida para empresas e industrias. Distribuidores oficiales Grundfos y Wilo, con asesoramiento técnico y compromiso en cada proyecto.">
-		<meta property="og:image" content="https://www.gamberini.com.ar/logoblanco.png">
+		<meta property="og:image" content="https://www.gamberini.com.ar/og-image.png">
 		<meta property="og:image:secure_url" content="https://www.gamberini.com.ar/og-image.png">
 		<meta property="og:image:width" content="1042">
 		<meta property="og:image:height" content="200">
@@ -49,7 +50,7 @@ const { title } = Astro.props;
 		<link rel="alternate" hreflang="es-AR" href="https://www.gamberini.com.ar/" />
 		<meta name="format-detection" content="telephone=yes">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-		<link rel="preload" as="image" href="/img/logoblanco.webp">
+		<link rel="preload" as="image" href={logofull.src}>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<script type="application/ld+json">
 		{
