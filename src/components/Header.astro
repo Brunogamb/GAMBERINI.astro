@@ -52,13 +52,8 @@ import logoiconhover from '/public/faviconblancohover.png';
 
 <style>
 header {
-    position: ;
-    top: 0;
-    left: 0;
-    width: 100%;
     background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    z-index: 10000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,11 +110,6 @@ header {
     gap: inherit;
 }
 
-.top-nav {
-    display: flex;
-    gap: 24px;
-}
-
 .top-nav a {
     color: #f1f1f1;
     font-weight: 400;
@@ -127,7 +117,6 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
 }
 
 .top-nav i {
@@ -154,7 +143,6 @@ header {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    cursor: pointer;
     margin: 20px 0;    
 }
 
@@ -337,7 +325,7 @@ header {
         height: 40px;
     }
 }
-/* Reset para que h1.header-logo no cambie el diseño del logo */
+
 h1.header-logo {
     margin: 0;
     font-size: inherit;
