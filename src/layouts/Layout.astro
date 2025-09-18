@@ -49,9 +49,12 @@ const { title } = Astro.props;
 		<link rel="canonical" href="https://www.gamberini.com.ar/" />
 		<link rel="alternate" hreflang="es-AR" href="https://www.gamberini.com.ar/" />
 		<meta name="format-detection" content="telephone=yes">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		<link rel="preload" as="image" href={logofull.src}>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+		<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+		<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -100,6 +103,11 @@ body {
     flex-direction: column;
     min-height: 100dvh;
     overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'Onest Variable';
+    font-display: swap;
 }
 
 header, main, footer {

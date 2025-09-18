@@ -6,4 +6,19 @@ export default defineConfig({
   integrations: [
     sitemap(),
   ],
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['astro'],
+          },
+        },
+      },
+    },
+  },
 });
