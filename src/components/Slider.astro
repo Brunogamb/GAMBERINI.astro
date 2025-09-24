@@ -35,7 +35,7 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 <style>
 .slider {
     width: 100%;
-    margin: 40px auto;
+    margin: 50px auto;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -43,9 +43,11 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 
 .slider .slide-track {
     display: flex;
-    animation: scroll 30s linear infinite;
     gap: 60px;
     padding: 20px 0;
+    height: 60px;
+    animation: scroll 40s linear infinite;
+    will-change: transform;
 }
 
 .slide {
@@ -58,10 +60,6 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
     max-width: 200px;
     object-fit: contain;
     transition: 0.2s ease;
-}
-
-.slide-track img:hover {
-    transform: scale(1.08);
 }
 
 
@@ -79,54 +77,33 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
         animation-play-state: paused;
     }
 }
+
+.slider .slide-track.paused {
+    animation-play-state: paused;
+}
 </style>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
         const track = document.querySelector('.slide-track');
         if (!track) return;
-
-        let isHovered = false;
-        let isVisible = true;
-        let scrollWidth = track.scrollWidth;
-        let duration = 30; 
-        let start = null;
-
-        function animateScroll(timestamp) {
-            if (!start) start = timestamp;
-            const elapsed = (timestamp - start) / 1000;
-            if (!isHovered && isVisible) {
-                const progress = (elapsed % duration) / duration;
-                track.style.transform = `translateX(${-scrollWidth * progress}px)`;
-            }
-            requestAnimationFrame(animateScroll);
-        }
-
-        function updateScrollWidth() {
-            scrollWidth = track.scrollWidth;
-        }
-
-        updateScrollWidth();
-        window.addEventListener('resize', updateScrollWidth);
-
-        track.addEventListener('mouseenter', () => {
-            isHovered = true;
-        });
-        track.addEventListener('mouseleave', () => {
-            isHovered = false;
-        });
-
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
-                    isVisible = entry.isIntersecting;
+                    if (entry.isIntersecting) {
+                        track.classList.remove('paused');
+                    } else {
+                        track.classList.add('paused');
+                    }
                 });
             },
             { threshold: 0.1 }
         );
+        
         observer.observe(track);
 
-        requestAnimationFrame(animateScroll);
+        window.addEventListener('beforeunload', () => {
+            observer.disconnect();
+        });
     });
-
 </script>
