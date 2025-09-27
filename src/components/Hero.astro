@@ -11,19 +11,16 @@ export interface Props {
 const { title, description, image, alt } = Astro.props;
 ---
 
-<main>
-    <section class="banner-hero">
-        <div class="banner-hero-img">
-            <Image src={image} alt={alt || title}/>
-            <div class="banner-hero-overlay"></div>
-            <div class="banner-text">
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </div>
-            </a>
+<section class="banner-hero" role="region" aria-labelledby="hero-heading">
+    <div class="banner-hero-img">
+        <Image src={image} alt={alt || title} />
+        <div class="banner-hero-overlay" aria-hidden="true"></div>
+        <div class="banner-text">
+            <h1 id="hero-heading">{title}</h1>
+            <p>{description}</p>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 
 <style>
 
