@@ -29,9 +29,9 @@ const { image, alt, text, logo, logoAlt } = Astro.props;
 
 <style>
 .card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     overflow: hidden;
     transition: box-shadow 0.3s, transform 0.3s;
     display: flex;
@@ -65,7 +65,7 @@ const { image, alt, text, logo, logoAlt } = Astro.props;
 .card-text p {
     padding: 32px;
     font-weight: 300;
-    color: #232323;
+    color: var(--text);
     line-height: 1.6;
     text-wrap: balance;
     font-size: clamp(16px, 3vw, 18px);
@@ -74,7 +74,7 @@ const { image, alt, text, logo, logoAlt } = Astro.props;
 .card-text p :global(span) {
     text-transform: uppercase;
     font-weight: bold;
-    color: #29166f;
+    color: var(--brand-900);
 }
 
 .service-logos {

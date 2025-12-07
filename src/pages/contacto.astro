@@ -64,18 +64,18 @@ import contacto from '../assets/banner/contacto.webp';
     width: 100%;
     flex-grow: 1;
     min-height: 300px; 
-    border-radius: 16px;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     border: none;
 }
 
 .schedule-card {
-    background: #fff;
+    background: var(--white);
     padding: 16px 20px;
-    border-radius: 16px;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     font-size: 18px;
-    color: #232323;
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -89,10 +89,10 @@ import contacto from '../assets/banner/contacto.webp';
 }
 
 .contact-card {
-    background: #fff;
+    background: var(--white);
     padding: 16px 20px;
-    border-radius: 16px;
-    box-shadow: 0 0 8px 4px rgba(0,0,0,0.05);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -100,7 +100,7 @@ import contacto from '../assets/banner/contacto.webp';
     flex: 1;
 }
 .contact-card h2 {
-    color: #29166f;
+    color: var(--brand-900);
     margin-bottom: 8px;
     font-size: 18px;
     font-weight: 700;
@@ -110,7 +110,7 @@ import contacto from '../assets/banner/contacto.webp';
 
 .contact-card a {
     font-size: 18px;
-    color: #232323;
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -118,24 +118,24 @@ import contacto from '../assets/banner/contacto.webp';
 }
 
 .contact-card a:hover {
-    color: #3a2a8f;
+    color: var(--brand-800);
     transform: translateX(4px);
 }
 
 .contact-card i.fab.fa-instagram {
-    color: #E1306C;
+    color: var(--instagram);
 }
 
 .contact-card i.fas.fa-phone {
-    color: #29166f;
+    color: var(--brand-900);
 }
 
 .contact-card i.fas.fa-envelope {
-    color: #29166f;
+    color: var(--brand-900);
 }
 
 .contact-card i.fab.fa-whatsapp {
-    color: #25D366;
+    color: var(--whatsapp);
 }
 
 @media (max-width: 736px) {

@@ -59,12 +59,12 @@
 
 <style>
 footer {
-    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
-    box-shadow: 0 -4px 8px rgba(0,0,0,0.05);
+    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
+    box-shadow: var(--shadow-top);
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #f1f1f1;
+    color: var(--white);
     padding: 10px 20px;
     text-wrap: balance
 }
@@ -104,15 +104,15 @@ footer h3 {
     display: inline-block; 
 }
 
-.location:hover a {
-    color: #a793e7;
+location:hover a {
+    color: var(--accent);
 }
 
 .footer-divider {
     width: 100%;
     max-width: 1200px;
     height: 1px;
-    background: linear-gradient(to right, #a793e7 0%, #f1f1f1 100%);
+    background: linear-gradient(to right, var(--accent) 0%, var(--bg) 100%);
     opacity: 0.6;
     grid-column: 1 / -1;
 }
@@ -120,22 +120,22 @@ footer h3 {
 .footer-bottom {
     margin: 30px 0 10px 0;
     text-align: center;
-    color: rgba(241, 241, 241, 0.85);
+    color: rgba(var(--white-rgb), 0.85);
     font-size: 14px;
     line-height: 1.4;
 }
 
 .dev-name {
     margin-top: 10px;
-    color: #f1f1f1;
+    color: var(--white);
 }
 
 .dev-link {
     font-weight: 600;
 }
 
-.dev-link:hover, footer a:hover {
-    color: #a793e7;
+dev-link:hover, footer a:hover {
+    color: var(--accent);
 }
 
 @media (max-width: 736px) {

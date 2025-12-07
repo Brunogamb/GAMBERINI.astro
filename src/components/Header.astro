@@ -52,8 +52,8 @@ import logoiconhover from '/public/faviconblancohover.png';
 
 <style>
 header {
-    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
+    box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,7 +66,7 @@ header {
     width: 100%;
     max-width: 1200px;
     height: 1px;
-    background: linear-gradient(to right, #a793e7 0%, #f1f1f1 100%);
+    background: linear-gradient(to right, var(--accent) 0%, var(--bg) 100%);
     opacity: 0.6;
 } 
 
@@ -111,7 +111,7 @@ header {
 }
 
 .top-nav a {
-    color: #f1f1f1;
+    color: var(--white);
     font-weight: 400;
     font-size: 16px;
     display: flex;
@@ -136,7 +136,7 @@ header {
 }
 
 .services-nav a {
-    color: #f1f1f1;
+    color: var(--white);
     font-weight: 400;
     font-size: 16px;
     display: flex;
@@ -147,7 +147,7 @@ header {
 }
 
 .services-nav a:hover, .top-nav a:hover {
-    color: #a793e7;
+    color: var(--accent);
 }
 
 .services-nav i {
@@ -158,14 +158,14 @@ header {
     display: none;
 }
 
-.mobile-menu {
+    .mobile-menu {
     display: none;
     position: fixed;
     inset: 0; 
-    background: linear-gradient(90deg, #29166f 20%, #3a2a8f 45%, #5145b6 75%);
+    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
     z-index: 15000;
     padding: 40px 20px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(var(--blur-md));
     animation: fadeInMenu 0.3s ease forwards;
 }
 
@@ -202,7 +202,7 @@ header {
     }
 
     .hamburger:hover span {
-        background: #a793e7;
+        background: var(--accent);
     }
 
     .mobile-menu.active {
@@ -234,8 +234,8 @@ header {
     .hamburger span {
         width: 28px;
         height: 3px;
-        background: #f1f1f1;
-        border-radius: 2px;
+        background: var(--white);
+        border-radius: var(--radius-xs);
         transition: all 0.3s linear;
         transform-origin: 4px;
     }
@@ -262,14 +262,14 @@ header {
     .mobile-menu a {
         gap: 20px;
         padding: 12px 18px;
-        border-radius: 8px;
+        border-radius: var(--radius-sm);
         transition: background 0.2s;
         max-width: 314px;
     }
 
     .mobile-menu a:hover {
-        background: rgba(167,147,231,0.18);
-        color: #a793e7;
+        background: rgba(var(--accent-rgb),0.18);
+        color: var(--accent);
     }
 
     .mobile-menu .text {
