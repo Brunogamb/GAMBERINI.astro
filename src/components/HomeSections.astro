@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import heroImage from '../assets/hero/contacto.webp';
+import localGamberini from '../assets/hero/contacto.webp';
 
 import sistemaIncendiosImg from '../assets/hero/sistema-incendios.webp';
 import diseñoMontajeImg from '../assets/hero/diseño-montaje.webp';
@@ -14,7 +14,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
             <p>En <strong>Gamberini</strong> transformamos desafíos complejos en soluciones integrales. Combinamos décadas de experiencia con innovación tecnológica para garantizar la seguridad de activos y la eficiencia en sistemas de bombeo.</p> 
         </div>
         <div class="about-image-wrapper"> 
-            <Image src={heroImage} alt="Equipo Gamberini" class="about-img-main" />
+            <Image src={localGamberini} alt="Local Gamberini" class="about-img-main" loading="eager"/>
         </div> 
     </div> 
 </section>
@@ -51,7 +51,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
             <p>Diseño e instalación de redes bajo normas NFPA. Aseguramos operatividad total para industrias y grandes superficies con tecnología de detección y extinción de vanguardia.</p>
 			<a href="/sistema-de-protección-contra-incendios" class="btn-service">Conocer servicio</a>
 		</div>
-		<Image src={sistemaIncendiosImg} alt="Sistema de protección contra incendios" class="about-img" />
+		<Image src={sistemaIncendiosImg} alt="Sistema de protección contra incendios" class="about-img" loading="lazy" />
 	</article>
 
 	<article>
@@ -60,7 +60,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
             <p>Ingeniería aplicada a sistemas de bombeo. Acompañamos desde el cálculo hídrico inicial hasta la puesta en marcha con documentación técnica certificada.</p>
 			<a href="/diseño-y-montaje" class="btn-service">Conocer servicio</a>
 		</div>
-		<Image src={diseñoMontajeImg} alt="Diseño y montaje de sistemas de bombeo" class="about-img" />
+		<Image src={diseñoMontajeImg} alt="Diseño y montaje de sistemas de bombeo" class="about-img" loading="lazy" />
 	</article>
 	
 	<article>
@@ -69,7 +69,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
             <p>Mantenimiento preventivo y correctivo de urgencia. Banco de pruebas propio para garantizar que cada bomba opere a su máxima eficiencia nominal.</p>
 			<a href="/servicio-tecnico" class="btn-service">Conocer servicio</a>
 		</div>
-		<Image src={servicioTecnicoImg} alt="Servicio técnico de bombas de agua" class="about-img" />
+		<Image src={servicioTecnicoImg} alt="Servicio técnico de bombas de agua" class="about-img" loading="lazy" />
 	</article>	
 </section>
 
@@ -109,19 +109,19 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 	<div class="projects-grid">
 
 		<div class="project-card">
-		<Image src={sistemaIncendiosImg} alt="Instalación de sistema contra incendios" />
+		<Image src={sistemaIncendiosImg} alt="Instalación de sistema contra incendios" loading="lazy" />
 		<h3>Depósito industrial - Pilar</h3>
 		<p>Montaje de sistema de bombeo y red contra incendio según NFPA 20.</p>
 		</div>
 
 		<div class="project-card">
-		<Image src={diseñoMontajeImg} alt="Montaje de bombas de agua" />
+		<Image src={diseñoMontajeImg} alt="Montaje de bombas de agua" loading="lazy" />
 		<h3>Torre residencial - CABA</h3>
 		<p>Instalación de bombas presurizadoras y panel de control.</p>
 		</div>
 
 		<div class="project-card">
-		<Image src={servicioTecnicoImg} alt="Servicio técnico" />
+		<Image src={servicioTecnicoImg} alt="Servicio técnico" loading="lazy" />
 		<h3>Industria alimenticia - Escobar</h3>
 		<p>Mantenimiento preventivo integral del sistema hidráulico.</p>
 		</div>
