@@ -6,10 +6,9 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 <div class="banner-wrapper">
     <div class="banner-carousel">
         <div class="carousel-track" id="banner-track">
-            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${sistemaIncendiosImg.src})` }}>
+            <div class="carousel-slide" style={{ "--bg-image": `url(${sistemaIncendiosImg.src})` }}>
                 <div class="banner-content">
-                    <span class="badge">Protección de Activos</span>
-                    <h1>Ingeniería de Protección <br/><strong>Contra Incendios</strong></h1>
+                    <h2>Ingeniería de Protección <br/><strong>Contra Incendios</strong></h2>
                     <p>Diseño, instalación y mantenimiento bajo normas internacionales NFPA para la industria y el comercio.</p>
                     <div class="cta-group">
                         <a href="/sistema-de-protección-contra-incendios" class="btn-primary">Sistemas contra incendios</a>
@@ -18,10 +17,9 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
                 </div>
             </div>
 
-            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${diseñoMontajeImg.src})` }}>
+            <div class="carousel-slide" style={{ "--bg-image": `url(${diseñoMontajeImg.src})` }}>
                 <div class="banner-content">
-                    <span class="badge">Partners Oficiales</span>
-                    <h1>Bombas de Alta <br/><strong>Eficiencia Hídrica</strong></h1>
+                    <h2>Bombas de Alta <br/><strong>Eficiencia Hídrica</strong></h2>
                     <p>Distribuidor oficiales de <strong>Grundfos</strong> y <strong>Wilo</strong>. Tecnología avanzada en bombeo centrífugo y presurización.</p>
                     <div class="cta-group">
                         <a href="/diseño-y-montaje" class="btn-primary">Diseño y Montaje</a>
@@ -30,10 +28,9 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
                 </div>
             </div>
 
-            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${servicioTecnicoImg.src})` }}>
+            <div class="carousel-slide" style={{ "--bg-image": `url(${servicioTecnicoImg.src})` }}>
                 <div class="banner-content">
-                    <span class="badge">Soporte 24/7</span>
-                    <h1>Servicio Técnico <br/><strong>Especializado</strong></h1>
+                    <h2>Servicio Técnico <br/><strong>Especializado</strong></h2>
                     <p>Reparaciones certificadas, puesta en marcha y contratos de mantenimiento preventivo integral.</p>
                     <div class="cta-group">
                         <a href="/servicio-tecnico" class="btn-primary">Servicio técnico</a>
@@ -82,6 +79,8 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
     display: flex;
     align-items: center;
     padding: 0 8%;
+    position: relative;
+    background-image: linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), var(--bg-image);
 }
 
 .banner-content {
@@ -90,77 +89,65 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
     z-index: 10;
 }
 
-.badge {
-    display: inline-block;
-    background: var(--accent-red);
-    color: var(--white);
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-}
-
-.banner-content h1 {
+.banner-content h2 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
     margin-bottom: 20px;
     font-weight: 300;
+    text-wrap: balance;
 }
 
-.banner-content h1 strong {
+.banner-content h2 strong {
     font-weight: 800;
     color: var(--white);
     display: block;
 }
 
 .banner-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1.5vw, 1.2rem);
     color: #cbd5e1;
     margin-bottom: 35px;
     max-width: 550px;
     line-height: 1.6;
+    text-wrap: balance;
 }
 
 .cta-group {
     display: flex;
     gap: 15px;
-    align-items: center;
+}
+
+.btn-primary, .btn-outline {
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-radius: var(--radius-md);
 }
 
 .btn-primary {
     background: var(--brand-800);
     color: var(--white);
-    padding: 16px 32px;
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s;
     border: 2px solid var(--brand-800);
-}
-
-.btn-primary:hover {
-    background: var(--brand-900);
-	transform: scale(1.05);
-    border-color: var(--brand-900);
 }
 
 .btn-outline {
     background: transparent;
     border: 2px solid var(--white);
     color: var(--white);
-    padding: 16px 32px;
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s;
 }
 
 .btn-outline:hover {
     background: var(--white);
     color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+    background: var(--brand-900);
+	transform: scale(1.05);
+    border-color: var(--brand-900);
 }
 
 .carousel-controls {
@@ -170,72 +157,88 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
     right: 8%;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     z-index: 30;
 }
 
 .carousel-controls button {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--white);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    flex-shrink: 0;
     transition: all 0.3s;
-}
-
-.carousel-controls button:hover {
-    background: var(--white);
-    color: var(--dark-bg);
+    font-size: 18px
 }
 
 .progress-bars {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-grow: 1;
     max-width: 400px;
 }
 
 .progress-bar {
-    height: 3px;
-    background: rgba(255,255,255,0.2);
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
     flex-grow: 1;
-    position: relative;
+    border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-fill {
-    position: absolute;
-    left: 0;
-    top: 0;
     height: 100%;
     width: 0%;
     background: var(--brand-700);
 }
 
-@media (max-width: 768px) {
-    .banner-content { 
-		padding-top: 
-		50px; 
-	}
+@media (max-width: 745px) {
+    .banner-carousel {
+        height: calc(84vh - 80px);
+    }
+    
+    .carousel-slide {
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
 
-    .cta-group { 
-		flex-direction: 
-		column; align-items: 
-		flex-start; 
-	}
+    .banner-content {
+        margin: 0 auto;
+    }
 
-    .carousel-controls { 
-		justify-content: space-between; 
-		left: 5%; 
-		right: 5%; 
-	}
+    .banner-content p {
+        margin: 0 auto 30px auto;
+    }
 
-    .progress-bars { 
-		max-width: 150px; 
-	}
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .carousel-controls {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .carousel-controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    #pause { 
+        display: none; 
+    }
+
+    .carousel-slide {
+        background-image: linear-gradient(rgba(10, 20, 30, 0.8), rgba(10, 20, 30, 0.8)), var(--bg-image);
+    }
 }
 </style>
 
