@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from "../components/Hero.astro";
 
-import contacto from '../assets/banner/contacto.webp';
+import contacto from '../assets/hero/contacto.webp';
 ---
 
 
@@ -14,7 +14,7 @@ import contacto from '../assets/banner/contacto.webp';
             <div class="contact-left">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.1302274486584!2d-60.51717982407858!3d-31.739646174114334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b44d8cf1fddd99%3A0xf24a634fcf7af8df!2sGAMBERINI!5e0!3m2!1ses-419!2sar!4v1751767792047!5m2!1ses-419!2sar" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" class="contact-map"></iframe>
                 <div class="schedule-card">
-                    <i class="fas fa-clock"></i> Lunes a Viernes: 8:00 - 17:00
+                    <span class="pulse-icon"></span> Lunes a Viernes: 8:00 - 17:00
                 </div>
             </div>
 
@@ -43,12 +43,27 @@ import contacto from '../assets/banner/contacto.webp';
 </Layout>
 
 <style>
+    .pulse-icon {
+    width: 10px;
+    height: 10px;
+    background: var(--whatsapp);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
 .contact-section {
     display: flex;
     justify-content: center;
     gap: 24px;
     padding: 0 20px;
     align-items: stretch;
+    margin-bottom: 40px;
 }
 
 .contact-left {
@@ -138,7 +153,7 @@ import contacto from '../assets/banner/contacto.webp';
     color: var(--whatsapp);
 }
 
-@media (max-width: 736px) {
+@media (max-width: 745px) {
     .contact-section {
         flex-direction: column;
         align-items: center;

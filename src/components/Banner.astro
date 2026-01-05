@@ -1,281 +1,301 @@
 ---
-import sistemaIncendiosImg from '../assets/banner/sistema-incendios.webp';
-import diseñoMontajeImg from '../assets/banner/diseño-montaje.webp';
-import servicioTecnicoImg from '../assets/banner/servicio-tecnico.webp';
-
-const slides = [
-    {
-        href: "/sistema-de-protección-contra-incendios",
-        image: sistemaIncendiosImg,
-        alt: "Vista de una sala de bombas para sistema de protección contra incendios",
-        title: "Sistema de Protección Contra Incendios",
-        description: "Diseño, instalación y mantenimiento de sistemas contra incendios segun normas IRAM y NFPA"
-    },
-    {
-        href: "/diseño-y-montaje",
-        image: diseñoMontajeImg,
-        alt: "Equipo trabajando en el diseño y montaje de una instalación",
-        title: "Diseño y Montaje",
-        description: "Servicios integrales para el diseño y montaje de sistemas de bombeo a sus necesidades específicas."
-    },
-    {
-        href: "/servicio-tecnico",
-        image: servicioTecnicoImg,
-        alt: "Técnico realizando mantenimiento a un equipo de bombeo",
-        title: "Servicio Técnico Autorizado",
-        description: "Mantenimiento, reparación y soporte técnico para asegurar el óptimo funcionamiento de sus equipos de bombeo."
-    }
-];
+import sistemaIncendiosImg from '../assets/hero/sistema-incendios.webp';
+import diseñoMontajeImg from '../assets/hero/diseño-montaje.webp';
+import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 ---
+<div class="banner-wrapper">
+    <div class="banner-carousel">
+        <div class="carousel-track" id="banner-track">
+            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${sistemaIncendiosImg.src})` }}>
+                <div class="banner-content">
+                    <span class="badge">Protección de Activos</span>
+                    <h1>Ingeniería de Protección <br/><strong>Contra Incendios</strong></h1>
+                    <p>Diseño, instalación y mantenimiento bajo normas internacionales NFPA para la industria y el comercio.</p>
+                    <div class="cta-group">
+                        <a href="/sistema-de-protección-contra-incendios" class="btn-primary">Nuestros Sistemas</a>
+                        <a href="/contacto" class="btn-outline">Contactar</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="banner-carousel">
-  <div class="carousel-track" id="banner-track">
-    {slides.map((slide) => (
-      <a href={slide.href} class="carousel-slide" aria-label={`Ir a ${slide.alt}`}
-        style={{ backgroundImage: `url(${slide.image.src})` }}>
-        <div class="banner-text">
-          <h2>{slide.title}</h2>
-          <p>{slide.description}</p>
+            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${diseñoMontajeImg.src})` }}>
+                <div class="banner-content">
+                    <span class="badge">Partners Oficiales</span>
+                    <h1>Bombas de Alta <br/><strong>Eficiencia Hídrica</strong></h1>
+                    <p>Distribuidor oficiales de <strong>Grundfos</strong> y <strong>Wilo</strong>. Tecnología avanzada en bombeo centrífugo y presurización.</p>
+                    <div class="cta-group">
+                        <a href="/marcas" class="btn-primary">Ver Catálogo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-slide" style={{ backgroundImage: `linear-gradient(to right, rgba(10, 20, 30, 0.9) 30%, transparent 70%), url(${servicioTecnicoImg.src})` }}>
+                <div class="banner-content">
+                    <span class="badge">Soporte 24/7</span>
+                    <h1>Servicio Técnico <br/><strong>Especializado</strong></h1>
+                    <p>Reparaciones certificadas, puesta en marcha y contratos de mantenimiento preventivo integral.</p>
+                    <div class="cta-group">
+                        <a href="/soporte" class="btn-primary">Soporte Urgente</a>
+                        <a href="/nosotros" class="btn-outline">Nuestra Experiencia</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </a>
-    ))}
-  </div>
 
-  <div class="carousel-controls">
-    <button id="prev" aria-label="Diapositiva anterior">&#10094;</button>
-    <button id="next" aria-label="Siguiente diapositiva">&#10095;</button>
-  </div>
-
-  <div class="progress-bars" id="progress-bars">
-    {slides.map((_, i) => (
-      <div class="progress-bar"><div class="progress-fill" data-index={i}></div></div>
-    ))}
-  </div>
+        <div class="carousel-controls">
+            <button id="prev" aria-label="Anterior">←</button>
+            <div class="progress-bars" id="progress-bars">
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+            <button id="next" aria-label="Siguiente">→</button>
+            <button id="pause" aria-label="Pausar">⏸</button>
+        </div>
+    </div>
 </div>
 
 <style>
+.banner-wrapper {
+    position: relative;
+    background: var(--dark-bg);
+}
+
 .banner-carousel {
-  position: relative;
-  height: calc(100dvh - 128px);
-  overflow: hidden;
+    position: relative;
+    height: calc(84vh - 100px);
+    min-height: 600px;
+    overflow: hidden;
 }
 
 .carousel-track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.4s ease-in-out;
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-slide {
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  color: var(--white);
+    flex: 0 0 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
 }
 
-.banner-text {
-  background: linear-gradient(90deg, rgba(var(--brand-900-rgb),0.88) 20%, rgba(var(--brand-800-rgb),0.88) 45%, rgba(var(--brand-700-rgb),0.88) 75%);
-  padding: 2rem;
-  border-radius: var(--radius-md);
-  max-width: 700px;
-  backdrop-filter: blur(var(--blur-sm));
-  word-break: break-word;
-  text-wrap: balance;
+.banner-content {
+    max-width: 700px;
+    color: var(--white);
+    z-index: 10;
 }
 
-.banner-text h2 {
-  font-size: 38px;
-  font-weight: 700;
-  margin-bottom: 18px;
-  line-height: 1.1;
+.badge {
+    display: inline-block;
+    background: var(--accent-red);
+    color: var(--white);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-radius: 2px;
 }
 
-.banner-text p {
-  font-size: 20px;
-  font-weight: 200;
-  line-height: 1.5;
-  color: var(--muted);
+.banner-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.banner-content h1 strong {
+    font-weight: 800;
+    color: var(--white);
+    display: block;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.cta-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-primary {
+    background: var(--brand-800);
+    color: var(--white);
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: 2px solid var(--brand-800);
+}
+
+.btn-primary:hover {
+    background: var(--brand-900);
+	transform: scale(1.05);
+    border-color: var(--brand-900);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--dark-bg);
 }
 
 .carousel-controls {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  transform: translateY(-50%);
-  z-index: 20;
-  opacity: 1;
-  pointer-events: none;
+    position: absolute;
+    bottom: 40px;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    z-index: 30;
 }
 
 .carousel-controls button {
-  pointer-events: auto;
-}
-
-.carousel-controls button {
-  background: rgba(20, 20, 30, 0.55); 
-  border: none; 
-  color: var(--white);
-  width: 44px;
-  height: 44px;
-  font-size: 22px;
-  cursor: pointer;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(var(--blur-sm));
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: var(--shadow-lg);
-  opacity: 0.85;
-  pointer-events: auto;
-  position: relative;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
 }
 
 .carousel-controls button:hover {
-  background: rgba(30, 30, 30, 0.85);
-  border: 2px solid var(--white);
-  transform: scale(1.12);
-  opacity: 1;
+    background: var(--white);
+    color: var(--dark-bg);
 }
 
 .progress-bars {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  width: 80%;
-  max-width: 280px;
-  z-index: 15;
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    max-width: 400px;
 }
 
 .progress-bar {
-  flex: 1;
-  height: 4px;
-  background: rgba(255,255,255,0.35);
-  border-radius: 2px;
-  overflow: hidden;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
 }
 
 .progress-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--white);
-  border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--brand-700);
 }
 
-@media (max-width: 736px) {
-  .banner-carousel {
-    height: calc(100dvh - 80px);
-  }
+@media (max-width: 768px) {
+    .banner-content { 
+		padding-top: 
+		50px; 
+	}
 
-  .carousel-controls {
-    top: auto;
-    bottom: 18px;
-  }
+    .cta-group { 
+		flex-direction: 
+		column; align-items: 
+		flex-start; 
+	}
 
-  .carousel-controls button {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
+    .carousel-controls { 
+		justify-content: space-between; 
+		left: 5%; 
+		right: 5%; 
+	}
 
-  .banner-text {
-    margin: 32px 8px 64px 8px;
-  }
+    .progress-bars { 
+		max-width: 150px; 
+	}
 }
 </style>
 
 <script type="module">
 document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById("banner-track");
-  const slides = track.querySelectorAll(".carousel-slide");
-  const total = slides.length;
-  const fills = document.querySelectorAll(".progress-fill");
+	const track = document.getElementById("banner-track");
+	const fills = document.querySelectorAll(".progress-fill");
+	const slides = document.querySelectorAll(".carousel-slide");
+	const total = slides.length;
 
-  let index = 0;
-  let autoplayInterval;
-  const duration = 7000; 
+	const prevBtn = document.getElementById("prev");
+	const nextBtn = document.getElementById("next");
+	const pauseBtn = document.getElementById("pause");
 
-  function updateSlide() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    resetProgress();
-  }
+	let index = 0;
+	const duration = 6000;
+	let progress = 0;
+	let lastTime = performance.now();
+	let paused = false;
 
-  function startAutoplay() {
-    autoplayInterval = setInterval(() => {
-      index = (index + 1) % total;
-      updateSlide();
-    }, duration);
-    resetProgress();
-  }
+	function update() {
+		track.style.transform = `translateX(-${index * 100}%)`;
+	}
 
-  function stopAutoplay() {
-    clearInterval(autoplayInterval);
-  }
+	function step(now) {
+		if (!paused) {
+			const delta = now - lastTime;
+			progress += delta / duration;
 
-  function resetProgress() {
-    fills.forEach((fill, i) => {
-      fill.style.width = "0%";
-      fill.style.transition = "none";
-    });
-    void document.body.offsetWidth;
+			if (progress >= 1) {
+				progress = 0;
+				index = (index + 1) % total;
+				update();
+			}
 
-    fills.forEach((fill, i) => {
-      if (i === index) {
-        fill.style.transition = `width ${duration}ms linear`;
-        fill.style.width = "100%";
-      }
-    });
-  }
+			fills.forEach((fill, i) => {
+				fill.style.width = i === index ? `${progress * 100}%` : '0%';
+			});
+		}
 
-  document.getElementById("next").addEventListener("click", () => {
-    index = (index + 1) % total;
-    updateSlide();
-  });
+		lastTime = now;
+		requestAnimationFrame(step);
+	}
 
-  document.getElementById("prev").addEventListener("click", () => {
-    index = (index - 1 + total) % total;
-    updateSlide();
-  });
+	nextBtn.onclick = () => {
+		index = (index + 1) % total;
+		progress = 0;
+		update();
+	};
 
-  let startX = 0;
-  let isSwiping = false;
+	prevBtn.onclick = () => {
+		index = (index - 1 + total) % total;
+		progress = 0;
+		update();
+	};
 
-  track.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isSwiping = true;
-    stopAutoplay();
-  });
+	pauseBtn.onclick = () => {
+		paused = !paused;
+		pauseBtn.textContent = paused ? "▶" : "⏸";
+	};
 
-  track.addEventListener("touchend", (e) => {
-    if (!isSwiping) return;
-    const endX = e.changedTouches[0].clientX;
-    const diffX = startX - endX;
-
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) {
-        index = (index + 1) % total;
-      } else {
-        index = (index - 1 + total) % total;
-      }
-      updateSlide();
-    }
-
-    isSwiping = false;
-    startAutoplay();
-  });
-
-  updateSlide();
-  startAutoplay();
+	requestAnimationFrame(step);
 });
 </script>

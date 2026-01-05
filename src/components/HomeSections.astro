@@ -1,0 +1,555 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero/contacto.webp';
+
+import sistemaIncendiosImg from '../assets/hero/sistema-incendios.webp';
+import diseñoMontajeImg from '../assets/hero/diseño-montaje.webp';
+import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
+---
+
+<section class="about-section"> 
+	<h2 class="section-title">Sobre la empresa</h2> 
+	<div class="about-container"> 
+        <div class="about-text"> 
+            <h2 class="title-left">Liderando la ingeniería de <strong>fluidos y seguridad</strong></h2> 
+            <p>En <strong>Gamberini</strong> transformamos desafíos complejos en soluciones integrales. Combinamos décadas de experiencia con innovación tecnológica para garantizar la seguridad de activos y la eficiencia en sistemas de bombeo.</p> 
+        </div>
+        <div class="about-image-wrapper"> 
+            <Image src={heroImage} alt="Equipo Gamberini" class="about-img-main" />
+            <div class="experience-badge">
+                <span class="exp-year">+20</span>
+                <span class="exp-text">Años en el mercado</span>
+            </div>
+        </div> 
+    </div> 
+</section>
+
+<section class="stats-section">
+	<div class="stats-container">
+		<div class="stat-item">
+			<span class="stat-number">+20</span>
+			<p class="stat-label">Años de experiencia</p>
+		</div>
+
+		<div class="stat-item">
+			<span class="stat-number">+300</span>
+			<p class="stat-label">Proyectos realizados</p>
+		</div>
+
+		<div class="stat-item">
+			<span class="stat-number">24/7</span>
+			<p class="stat-label">Soporte técnico</p>
+		</div>
+
+		<div class="stat-item">
+			<span class="stat-number">100%</span>
+			<p class="stat-label">Cumplimiento normativo</p>
+		</div>
+	</div>
+</section>
+
+<section class="services-section">
+	<h2 class="section-title">Nuestros servicios</h2>
+	<article>
+		<div class="service-info">
+            <h2>Sistemas de Protección Contra Incendio</h2>
+            <p>Diseño e instalación de redes bajo normas NFPA. Aseguramos operatividad total para industrias y grandes superficies con tecnología de detección y extinción de vanguardia.</p>
+			<a href="/sistema-de-protección-contra-incendios" class="btn-service">Conocer servicio</a>
+		</div>
+		<Image src={sistemaIncendiosImg} alt="Sistema de protección contra incendios" class="about-img" />
+	</article>
+
+	<article>
+		<div class="service-info">
+            <h2>Diseño y Montaje Hidráulico</h2>
+            <p>Ingeniería aplicada a sistemas de bombeo. Acompañamos desde el cálculo hídrico inicial hasta la puesta en marcha con documentación técnica certificada.</p>
+			<a href="/diseño-y-montaje" class="btn-service">Conocer servicio</a>
+		</div>
+		<Image src={diseñoMontajeImg} alt="Diseño y montaje de sistemas de bombeo" class="about-img" />
+	</article>
+	
+	<article>
+		<div class="service-info">
+            <h2>Servicio Técnico y Auditorías</h2>
+            <p>Mantenimiento preventivo y correctivo de urgencia. Banco de pruebas propio para garantizar que cada bomba opere a su máxima eficiencia nominal.</p>
+			<a href="/servicio-tecnico" class="btn-service">Conocer servicio</a>
+		</div>
+		<Image src={servicioTecnicoImg} alt="Servicio técnico de bombas de agua" class="about-img" />
+	</article>	
+</section>
+
+<section class="process-section">
+	<h2 class="section-title">Nuestro proceso</h2>
+
+	<div class="process-grid">
+		<div class="process-step">
+		<span class="step-number">01</span>
+		<h3>Relevamiento</h3>
+		<p>Visitamos el sitio, analizamos riesgos y definimos necesidades reales del proyecto.</p>
+		</div>
+
+		<div class="process-step">
+		<span class="step-number">02</span>
+		<h3>Ingeniería</h3>
+		<p>Diseñamos soluciones hidráulicas y contra incendio según normativas.</p>
+		</div>
+
+		<div class="process-step">
+		<span class="step-number">03</span>
+		<h3>Instalación</h3>
+		<p>Montaje, provisión y puesta en marcha con personal especializado.</p>
+		</div>
+
+		<div class="process-step">
+		<span class="step-number">04</span>
+		<h3>Mantenimiento</h3>
+		<p>Garantizamos operatividad con auditorías y servicio técnico programado.</p>
+		</div>
+	</div>
+</section>
+
+<section class="projects-section">
+	<h2 class="section-title">Trabajos realizados</h2>
+
+	<div class="projects-grid">
+
+		<div class="project-card">
+		<Image src={sistemaIncendiosImg} alt="Instalación de sistema contra incendios" />
+		<h3>Depósito industrial - Pilar</h3>
+		<p>Montaje de sistema de bombeo y red contra incendio según NFPA 20.</p>
+		</div>
+
+		<div class="project-card">
+		<Image src={diseñoMontajeImg} alt="Montaje de bombas de agua" />
+		<h3>Torre residencial - CABA</h3>
+		<p>Instalación de bombas presurizadoras y panel de control.</p>
+		</div>
+
+		<div class="project-card">
+		<Image src={servicioTecnicoImg} alt="Servicio técnico" />
+		<h3>Industria alimenticia - Escobar</h3>
+		<p>Mantenimiento preventivo integral del sistema hidráulico.</p>
+		</div>
+
+	</div>
+</section>
+
+<section class="cta-section">
+	<div class="cta-content">
+		<h2>¿Listo para tu proyecto?</h2>
+		<a href="/contacto" class="btn-cta">Solicitar presupuesto</a>	
+	</div>
+</section>
+
+<style>
+section {
+	padding: 60px 20px;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+p {
+	font-size: 16px;
+	color: var(--text);
+	line-height: 1.5;
+}
+
+.about-container, .cta-content {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.section-title {
+	font-size: 36px;
+	text-align: center;
+	color: var(--brand-900);
+	margin-bottom: 40px;
+	font-weight: 700;
+	position: relative;
+}
+
+.section-title::after {
+	content: "";
+	display: block;
+	width: 80px;
+	height: 4px;
+	background: var(--accent);
+	margin: 12px auto 0 auto;
+	border-radius: 2px;
+}
+
+.about-section {
+	background-color: var(--bg);
+}
+
+.about-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 60px; 
+	padding-bottom: 65px;
+}
+
+.about-text p {
+	font-size: 18px;
+	line-height: 1.8;
+	color: var(--text);
+	max-width: 500px;
+	margin: auto;
+}
+
+.about-img {
+	max-width: 650px;
+	width: 100%;
+	height: auto;
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-lg);
+	object-fit: cover;
+}
+
+.title-left { 
+	font-size: 3rem; 
+	color: var(--brand-900); 
+	line-height: 1.1; 
+	margin-bottom: 25px; 
+}
+
+.title-left strong { 
+	color: var(--brand-700); 
+	font-weight: 800; 
+}
+
+.about-image-wrapper { 
+	position: relative; 
+}
+
+.about-img-main {
+    border-radius: var(--radius-md);
+    box-shadow: 30px 30px 0px var(--bg-muted);
+	width: 600px;
+	height: auto;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--brand-900);
+    color: var(--white);
+    padding: 30px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+}
+
+.exp-year { 
+	font-size: 40px; 
+	font-weight: 800; 
+	color: var(--accent); 
+	line-height: 1; 
+}
+
+.stats-section {
+	background: var(--brand-900);
+}
+
+.stats-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 32px;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 42px;
+	font-weight: 800;
+	color: var(--accent);
+}
+
+.stat-label {
+	color: var(--white);
+	opacity: 0.9;
+}
+
+.stat-item { 
+	text-align: center; 
+	border-right: 1px solid rgba(255,255,255,0.1); 
+}
+
+.stat-item:last-child { 
+	border: none; 
+}
+
+.services-section {
+	background-color: var(--bg);
+	max-width: 1240px;
+	margin: 0 auto 35px auto;
+}
+
+.services-section article {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 80px;
+	gap: 40px;
+}
+
+.services-section article:nth-of-type(2) {
+	flex-direction: row-reverse;
+}
+
+.services-section article:last-child {
+	margin-bottom: 0;
+}
+
+.services-section article img {
+	width: 540px;
+	height: 360px;
+	object-fit: cover;
+}
+
+.service-info {
+	max-width: 540px;
+}
+
+.service-info h2 {
+	font-size: 30px;
+	font-weight: 800;
+	color: var(--brand-900);
+	margin-bottom: 14px;
+}
+
+.service-info p {
+	font-size: 18px;
+	line-height: 1.8;
+	margin-bottom: 24px;
+	color: var(--text);
+}
+
+.btn-service {
+	display: inline-block;
+	background: var(--accent);
+	color: var(--brand-900);
+	font-weight: 700;
+	padding: 14px 30px;
+	font-size: 18px;
+	border-radius: var(--radius-md);
+	transition: all 0.25s ease;
+}
+
+.btn-service:hover {
+	background: var(--brand-900);
+	color: var(--white);
+	transform: scale(1.05);
+}
+
+.process-section {
+	background: var(--bg-muted);
+	padding-bottom: 90px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.process-step {
+	background: var(--bg-light);
+	padding: 30px;
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
+	border-bottom: 4px solid var(--accent)
+}
+
+.step-number {
+	font-size: 32px;
+	font-weight: 800;
+	color: var(--brand-700);
+	display: block;
+	margin-bottom: 12px;
+}
+
+.projects-section {
+	background: var(--bg);
+	padding: 80px 20px;
+}
+
+.projects-grid {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+
+.project-card {
+	background: var(--white);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
+	overflow: hidden;
+	border-bottom: 4px solid var(--accent)
+}
+
+.project-card img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.project-card h3 {
+	font-size: 20px;
+	margin: 16px 20px 8px;
+	color: var(--brand-900);
+}
+
+.project-card p {
+	font-size: 16px;
+	margin: 0 20px 20px;
+	color: var(--text);
+}
+
+.cta-section {
+	padding: 60px 20px 20px;
+}
+
+.cta-content { 
+	background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 95%);
+	text-align: center;
+	padding: 64px 20px;
+	color: var(--white);
+	box-shadow: var(--shadow-lg);
+	max-width: 1200px;
+	width: 100%;	
+	border-radius: var(--radius-md);
+}
+
+.cta-content h2 {
+	font-size: 32px;
+	margin-bottom: 30px;
+}
+
+.btn-cta {
+	display: inline-block;
+	background: var(--accent);
+	color: var(--brand-900);
+	font-weight: 700;
+	transition: all 0.25s ease;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 14px 28px; 
+    font-size: 16px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
+}
+
+.btn-cta:hover {
+	color: var(--white);
+	transform: scale(1.05);
+	box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 1024px) {
+	section {
+		padding: 60px 20px 0 20px;
+	}
+
+	.about-container {
+		grid-template-columns: 1fr;
+		text-align: center;
+		text-wrap: balance;
+		gap: 30px;
+		padding-bottom: 80px;
+	}
+
+	.about-img {
+		height: 300px;
+	}
+
+	.process-section {
+		padding-bottom: 80px;
+	}
+
+	.process-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.services-section {
+		padding-bottom: 80px;
+		margin-bottom: 0;
+	}
+
+	.services-section article {
+		flex-direction: column;
+		text-align: center;
+		gap: 32px;
+		margin-bottom: 60px;
+	}
+
+	.services-section article:nth-of-type(2) {
+		flex-direction: column;
+	}
+
+	.services-section article img {
+		width: 100%;
+		max-width: 600px;
+		height: 300px;
+		border-radius: var(--radius-md);
+	}
+
+	.service-info {
+		max-width: 100%;
+		padding: 0 20px;
+	}
+
+	.projects-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.cta-section {
+		padding: 0 20px;
+	}
+}
+
+@media (max-width: 745px) {
+	.process-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.services-section article img {
+		height: 220px;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.about-image,
+	.services-section article img {
+		display: none;
+	}
+
+	.stats-container {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 15px;
+    }
+    .stat-item:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+}
+</style>

@@ -8,20 +8,18 @@ import logoiconhover from '/public/faviconblancohover.png';
 
 <header>
     <div class="top-bar">
-        <div class="menu-logo">
-            <h1 class="header-logo">
-                <a href="/">
-                    <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
-                    <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
-                    <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
-                    <Image src={logoiconhover} alt="Icono hover Gamberini" class="logo-icon-hover" loading="eager" />
-                </a>
-            </h1>
-        </div>
+        <h1 class="header-logo">
+            <a href="/">
+                <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
+                <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
+                <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
+                <Image src={logoiconhover} alt="Icono hover Gamberini" class="logo-icon-hover" loading="eager" />
+            </a>
+        </h1>
 
         <div class="right-bar">
             <nav class="top-nav">
-                <a href="/contacto"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
+                <a href="/contacto" class="contact-link"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
             </nav>
             <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span>
@@ -31,44 +29,37 @@ import logoiconhover from '/public/faviconblancohover.png';
         </div>
     </div>
 
-    <div class="horizontal-divider"></div>
-    
     <nav class="services-nav desktop-menu">
         <ul>
-            <li><a href="/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a></li>
-            <li><a href="/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a></li>
-            <li><a href="/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a></li>
+            <li><a href="/sistema-de-protección-contra-incendios">Sistema de protección contra incendios</a></li>
+            <span class="dividing-line">|</span>
+            <li><a href="/diseño-y-montaje">Diseño y montaje</a></li>
+            <span class="dividing-line">|</span>
+            <li><a href="/servicio-tecnico">Servicio técnico</a></li>
         </ul>
     </nav>
     
     <nav class="services-nav mobile-menu" id="mobile-menu" aria-hidden="true">
         <ul>
-            <li><a href="/sistema-de-protección-contra-incendios"><i class="fas fa-fire-extinguisher"></i><span class="text">Sistema de protección contra incendios</span></a></li>
-            <li><a href="/diseño-y-montaje"><i class="fas fa-drafting-compass"></i><span class="text">Diseño y montaje</span></a></li>
-            <li><a href="/servicio-tecnico"><i class="fas fa-tools"></i><span class="text">Servicio técnico</span></a></li>
+            <li><a href="/sistema-de-protección-contra-incendios"><span class="text">Sistema de protección contra incendios</span></a></li>
+            <li><a href="/diseño-y-montaje"><span class="text">Diseño y montaje</span></a></li>
+            <li><a href="/servicio-tecnico"><span class="text">Servicio técnico</span></a></li>
         </ul>
     </nav>
 </header>
 
 <style>
 header {
-    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
+    position: relative;
+    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 95%);
     box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 128px;
+    height: 100px;
     padding: 0 20px;
 }
-
-.horizontal-divider {
-    width: 100%;
-    max-width: 1200px;
-    height: 1px;
-    background: linear-gradient(to right, var(--accent) 0%, var(--bg) 100%);
-    opacity: 0.6;
-} 
 
 .top-bar {
     display: flex;
@@ -76,7 +67,7 @@ header {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 20px 0;
+    margin-bottom: 4px;
 }
 
 .header-logo {
@@ -88,7 +79,7 @@ header {
     width: auto;
 }
 
-.logo-icon{
+.logo-icon {
     display: none;
 }
 
@@ -104,12 +95,6 @@ header {
     display: inline;
 }
 
-.services-nav ul {
-    list-style: none;
-    display: flex;
-    gap: inherit;
-}
-
 .top-nav a {
     color: var(--white);
     font-weight: 400;
@@ -119,62 +104,101 @@ header {
     gap: 8px;
 }
 
-.top-nav i {
-    font-size: 16px;
-}
-
 .right-bar {
     display: flex;
     gap: 20px;
 }
 
+.contact-link {
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+    background: var(--brand-900);
+	border-color: var(--brand-900);
+}
+
+.top-nav a:hover {
+    color: var(--white);
+}
+
 .services-nav {
     display: flex;
-    gap: 32px;
     width: 100%;
     max-width: 1200px;
 }
 
-.services-nav a {
-    color: var(--white);
-    font-weight: 400;
-    font-size: 16px;
+.services-nav ul {
+    list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px 0;    
+    margin: 10px 0 4px;   
+    gap: 16px;
 }
 
-.services-nav a:hover, .top-nav a:hover {
+.services-nav a {
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.services-nav a:hover {
     color: var(--accent);
 }
 
-.services-nav i {
-    font-size: 16px;
+.dividing-line { 
+    color: rgba(255,255,255,0.4); 
+    font-size: 16px; 
+    user-select: none;
 }
 
 .hamburger {
     display: none;
+    margin: auto;
 }
 
-    .mobile-menu {
+.mobile-menu {
     display: none;
-    position: fixed;
-    inset: 0; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
     z-index: 15000;
-    padding: 40px 20px;
-    backdrop-filter: blur(var(--blur-md));
-    animation: fadeInMenu 0.3s ease forwards;
+    padding: 20px;
+    animation: slideDown 0.25s ease forwards;
 }
 
-@keyframes fadeInMenu {
-    from {opacity: 0; transform: translateY(-10px);}
-    to {opacity: 1; transform: translateY(0);}
+h1.header-logo {
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: normal;
 }
 
-@media (max-width: 736px) {
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 745px) {
     .top-nav i {
         font-size: 21px;
     }
@@ -183,18 +207,8 @@ header {
         height: 22px;
     }
 
-    .top-nav a {
-        font-size: 28px;
-        margin-left: 20px;
-    }
-
-    .top-bar {
-        z-index: 16001;
-    }
-
     .text{
         display: none;
-        text-wrap: balance;
     }
 
     .horizontal-divider {
@@ -213,12 +227,6 @@ header {
         display: none;
     }
 
-    .menu-logo {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
     .hamburger {
         display: flex;
         flex-direction: column;
@@ -228,7 +236,6 @@ header {
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 16000;
     }
 
     .hamburger span {
@@ -256,33 +263,30 @@ header {
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        margin: auto;
+        gap: 0px;
+    }
+
+    .mobile-menu li {
+        margin-bottom: 20px;
     }
 
     .mobile-menu a {
         gap: 20px;
-        padding: 12px 18px;
-        border-radius: var(--radius-sm);
-        transition: background 0.2s;
-        max-width: 314px;
-    }
-
-    .mobile-menu a:hover {
-        background: rgba(var(--accent-rgb),0.18);
-        color: var(--accent);
     }
 
     .mobile-menu .text {
         display: flex;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         word-break: break-word;
-        text-align: left;
         flex: 1;
     }
 
-    .mobile-menu i {
-        font-size: 1.4rem;
-        text-align: left;
+    .services-nav {
+        padding: 0 20px;
+    }
+
+    .services-nav ul {
+        align-items: start;
     }
 
     header {
@@ -290,13 +294,13 @@ header {
         height: 80px;
     }
 
-    body.menu-open {
-        overflow: hidden;
-        height: 100dvh;
+    .contact-link {
+        border: none;
+        padding: 0;
     }
 
-    html, body {   
-        overflow-x: hidden;
+    .contact-link:hover {
+        background: transparent;
     }
 }
 
@@ -324,13 +328,6 @@ header {
     .header-logo {
         height: 40px;
     }
-}
-
-h1.header-logo {
-    margin: 0;
-    font-size: inherit;
-    font-weight: normal;
-    line-height: normal;
 }
 </style>
 

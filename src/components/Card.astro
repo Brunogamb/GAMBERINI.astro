@@ -9,81 +9,109 @@ export interface Props {
     logoAlt?: string;
 }
 
-const { image, alt, text, logo, logoAlt } = Astro.props;
+const { image, alt, text, logo, logoAlt = "Ingeniería" } = Astro.props;
 ---
 
-<div class="card">
-    <div class="card-img">
+<div class="modern-card">
+    <div class="card-header">
         <Image 
             src={image} 
             alt={alt || 'Card image'} 
+            class="main-image"
         />
     </div>
-    <div class="card-text">
-        <p set:html={text}></p>
+    
+    <div class="card-body">
+        <div class="text-content">
+            <p set:html={text}></p>
+        </div>
+        
+        {logo && (
+            <div class="certification-area">
+                <div class="divider"></div>
+                <Image src={logo} alt={logoAlt || 'Logo'} class="auth-logo" />
+            </div>
+        )}
     </div>
-    {logo && (
-        <Image src={logo} alt={logoAlt || 'Logo'} class="service-logos" />
-    )}
 </div>
 
 <style>
-.card {
+.modern-card {
     background: var(--white);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-    transition: box-shadow 0.3s, transform 0.3s;
     display: flex;
     flex-direction: column;
+    position: relative;
+    border: 2px solid rgba(var(--brand-900-rgb), 0.05);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
 }
 
-.card:hover {
-    transform: translateY(-4px) scale(1.02);
-}
-
-.card-img {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 350px;
+.card-header {
+    position: relative;
+    height: 300px;
     overflow: hidden;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-.card-img img {
+.main-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
 }
 
-.card:hover .card-img img {
-    transform: scale(1.05);
-}
-
-.card-text p {
-    padding: 32px;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.6;
-    text-wrap: balance;
-    font-size: clamp(16px, 3vw, 18px);
-}
-
-.card-text p :global(span) {
+.category-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(var(--brand-900-rgb), 0.8);
+    backdrop-filter: blur(var(--blur-sm));
+    color: var(--white);
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: bold;
-    color: var(--brand-900);
+    letter-spacing: 1px;
+    border-radius: var(--radius-xs);
 }
 
-.service-logos {
+.card-body {
+    padding: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto auto 20px auto;
-    max-height: 60px;
-    height: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.text-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 400;
+    margin: 0;
+}
+
+.text-content p :global(span) {
+    color: var(--brand-900);
+    font-weight: 700;
+    background: linear-gradient(to bottom, transparent 80%, var(--accent) 60%);
+    background-size: 100% 100%;
+}
+
+.certification-area {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.divider {
+    height: 1px;
+    background: var(--brand-700);
+    margin-bottom: 20px;
+    opacity: 0.2;
+}
+
+.auth-logo {
+    height: 50px;
     width: auto;
+    object-fit: contain;
 }
 </style>

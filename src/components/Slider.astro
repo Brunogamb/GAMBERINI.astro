@@ -11,24 +11,24 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 
 <div class="slider">
     <div class="slide-track">
-        <a class="slide" href="https://wilo.com/ar/es/" target="_blank"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
-        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
-        <a class="slide" href="https://www.dabpumps.com/" target="_blank"><Image src={dab} alt="Logo 3" loading="lazy" /></a>
-        <a class="slide" href="https://www.motorarg.com.ar/" target="_blank"><Image src={motorarg} alt="Logo 4" loading="lazy" /></a>
-        <a class="slide" href="https://www.genebre.com.ar/" target="_blank"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
-        <a class="slide" href="https://www.pedrollo.com/es/" target="_blank"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
-        <a class="slide" href="https://rotorpump.com/" target="_blank"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
+        <a class="slide" href="https://wilo.com/ar/es/" target="_blank" rel="noopener noreferrer"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
+        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank" rel="noopener noreferrer"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
+        <a class="slide" href="https://www.dabpumps.com/" target="_blank" rel="noopener noreferrer"><Image src={dab} alt="Logo 3" loading="lazy" /></a>
+        <a class="slide" href="https://www.motorarg.com.ar/" target="_blank" rel="noopener noreferrer"><Image src={motorarg} alt="Logo 4" loading="lazy" /></a>
+        <a class="slide" href="https://www.genebre.com.ar/" target="_blank" rel="noopener noreferrer"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
+        <a class="slide" href="https://www.pedrollo.com/es/" target="_blank" rel="noopener noreferrer"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
+        <a class="slide" href="https://rotorpump.com/" target="_blank" rel="noopener noreferrer"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
         
-        <a class="slide" href="https://wilo.com/ar/es/" target="_blank"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
-        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
-        <a class="slide" href="https://www.dabpumps.com/" target="_blank"><Image src={dab} alt="Logo 3" loading="lazy" /></a>
-        <a class="slide" href="https://www.motorarg.com.ar/" target="_blank"><Image src={motorarg} alt="Logo 4" loading="lazy" /></a>
-        <a class="slide" href="https://www.genebre.com.ar/" target="_blank"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
-        <a class="slide" href="https://www.pedrollo.com/es/" target="_blank"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
-        <a class="slide" href="https://rotorpump.com/" target="_blank"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
+        <a class="slide" href="https://wilo.com/ar/es/" target="_blank" rel="noopener noreferrer"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
+        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank" rel="noopener noreferrer"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
+        <a class="slide" href="https://www.dabpumps.com/" target="_blank" rel="noopener noreferrer"><Image src={dab} alt="Logo 3" loading="lazy" /></a>
+        <a class="slide" href="https://www.motorarg.com.ar/" target="_blank" rel="noopener noreferrer"><Image src={motorarg} alt="Logo 4" loading="lazy" /></a>
+        <a class="slide" href="https://www.genebre.com.ar/" target="_blank" rel="noopener noreferrer"><Image src={genebre} alt="Logo 5" loading="lazy" /></a>
+        <a class="slide" href="https://www.pedrollo.com/es/" target="_blank" rel="noopener noreferrer"><Image src={pedrollo} alt="Logo 6" loading="lazy" /></a>
+        <a class="slide" href="https://rotorpump.com/" target="_blank" rel="noopener noreferrer"><Image src={rotorpump} alt="Logo 7" loading="lazy" /></a>
 
-        <a class="slide" href="https://wilo.com/ar/es/" target="_blank"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
-        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
+        <a class="slide" href="https://wilo.com/ar/es/" target="_blank" rel="noopener noreferrer"><Image src={wilo} alt="Logo 1" loading="lazy" /></a>
+        <a class="slide" href="https://www.grundfos.com/ar/" target="_blank" rel="noopener noreferrer"><Image src={grundfos} alt="Logo 2" loading="lazy" /></a>
     </div>
 </div>
 
@@ -45,26 +45,25 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
     display: flex;
     animation: scroll 30s linear infinite;
     gap: 60px;
-    padding: 20px 0;
     height: 60px;
 }
 
 .slide {
-    flex: 0 0 auto;
     display: flex;
     align-items: center;
 }
 
 .slide img {
     max-width: 200px;
-    object-fit: contain;
+    height: auto;
     transition: 0.2s ease;
+    opacity: 0.8;
 }
 
 .slide-track img:hover {
     transform: scale(1.08);
+    opacity: 1;
 }
-
 
 @keyframes scroll{
     0% {
@@ -74,10 +73,24 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
         transform: translateX(-1592px);
     }
 }
-
-@media (hover: hover) and (pointer: fine) {
-    .slider:hover .slide-track {
-        animation-play-state: paused;
-    }
-}
 </style>
+
+<script type="module">
+const track = document.querySelector('.slide-track');
+const slides = document.querySelectorAll('.slider img');
+
+let leaveTimeout; 
+
+slides.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+        clearTimeout(leaveTimeout);
+        track.style.animationPlayState = 'paused';
+    });
+
+    img.addEventListener('mouseleave', () => {
+        leaveTimeout = setTimeout(() => {
+            track.style.animationPlayState = 'running';
+        }, 100);
+    });
+});
+</script>
