@@ -3,6 +3,9 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.gamberini.com.ar',
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [
     sitemap(),
   ],
