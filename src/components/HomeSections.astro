@@ -56,7 +56,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 
 	<article>
 		<div class="service-info">
-            <h2>Diseño y Montaje Hidráulico</h2>
+            <h2>Diseño y Montaje</h2>
             <p>Ingeniería aplicada a sistemas de bombeo. Acompañamos desde el cálculo hídrico inicial hasta la puesta en marcha con documentación técnica certificada.</p>
 			<a href="/diseño-y-montaje" class="btn-service">Conocer servicio</a>
 		</div>
@@ -65,7 +65,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 	
 	<article>
 		<div class="service-info">
-            <h2>Servicio Técnico y Auditorías</h2>
+            <h2>Servicio Técnico</h2>
             <p>Mantenimiento preventivo y correctivo de urgencia. Banco de pruebas propio para garantizar que cada bomba opere a su máxima eficiencia nominal.</p>
 			<a href="/servicio-tecnico" class="btn-service">Conocer servicio</a>
 		</div>
@@ -104,29 +104,36 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 </section>
 
 <section class="projects-section">
-	<h2 class="section-title">Trabajos realizados</h2>
+    <h2 class="section-title">Trabajos realizados</h2>
 
-	<div class="projects-grid">
+    <div class="projects-grid">
+        <div class="project-card">
+            <Image src={diseñoMontajeImg} alt="Frigorífico Cotef" />
+            <div class="project-body">
+                <h3>Frigorífico Cotef</h3>
+                <p>Sistema de presurización WILO con velocidad variable y colectores de acero inoxidable, diseñado para garantizar presión constante y respaldo total.</p>
+                <a href="/" class="btn-project">Ver detalles</a>
+            </div>
+        </div>
 
-		<div class="project-card">
-		<Image src={sistemaIncendiosImg} alt="Instalación de sistema contra incendios" loading="lazy" />
-		<h3>Depósito industrial - Pilar</h3>
-		<p>Montaje de sistema de bombeo y red contra incendio según NFPA 20.</p>
-		</div>
+        <div class="project-card">
+            <Image src={sistemaIncendiosImg} alt="Cine Las Tipas" />
+            <div class="project-body">
+                <h3>Cine Las Tipas</h3>
+                <p>Instalación y programación de sistemas de detección inteligente para el monitoreo constante de ambientes, asegurando una operación libre de riesgos.</p>
+                <a href="/" class="btn-project">Ver detalles</a>
+            </div>
+        </div>
 
-		<div class="project-card">
-		<Image src={diseñoMontajeImg} alt="Montaje de bombas de agua" loading="lazy" />
-		<h3>Torre residencial - CABA</h3>
-		<p>Instalación de bombas presurizadoras y panel de control.</p>
-		</div>
-
-		<div class="project-card">
-		<Image src={servicioTecnicoImg} alt="Servicio técnico" loading="lazy" />
-		<h3>Industria alimenticia - Escobar</h3>
-		<p>Mantenimiento preventivo integral del sistema hidráulico.</p>
-		</div>
-
-	</div>
+        <div class="project-card">
+            <Image src={servicioTecnicoImg} alt="Mantenimiento Industrial" />
+            <div class="project-body">
+                <h3>Mantenimiento Industrial</h3>
+                <p>Auditorías técnicas y optimización de rendimiento en plantas industriales, garantizando la máxima eficiencia operativa del sistema.</p>
+                <a href="/" class="btn-project">Ver detalles</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="cta-section">
@@ -349,7 +356,7 @@ p {
 
 .projects-section {
 	background: var(--bg);
-	padding: 80px 20px;
+	padding: 80px 20px 40px;
 }
 
 .projects-grid {
@@ -365,7 +372,9 @@ p {
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-md);
 	overflow: hidden;
-	border-bottom: 4px solid var(--accent)
+	border-bottom: 4px solid var(--accent);
+	display: flex;
+    flex-direction: column;
 }
 
 .project-card img {
@@ -374,16 +383,44 @@ p {
 	object-fit: cover;
 }
 
+.project-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .project-card h3 {
-	font-size: 20px;
-	margin: 16px 20px 8px;
-	color: var(--brand-900);
+	font-size: 22px;
+    color: var(--brand-900);
+    margin: 0 4px 12px 4px;
 }
 
 .project-card p {
-	font-size: 16px;
-	margin: 0 20px 20px;
-	color: var(--text);
+	font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0 4px 20px 4px;
+    flex-grow: 1;
+}
+
+.btn-project {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--brand-700);
+    color: var(--brand-700);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: var(--radius-xs);
+    transition: all 0.3s ease;
+}
+
+.btn-project:hover {
+    background: var(--brand-700);
+    color: var(--white);
 }
 
 .cta-section {
