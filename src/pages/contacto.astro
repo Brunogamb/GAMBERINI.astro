@@ -36,6 +36,12 @@ import contacto from '../assets/hero/contacto.webp';
                     <a href="mailto:service@gamberini.com.ar"><i class="fas fa-envelope"></i> service@gamberini.com.ar</a>
                     <a href="https://wa.me/543434657441" target="_blank"><i class="fab fa-whatsapp"></i> +54 3434 65-7441</a>
                 </div>
+                
+                <div class="contact-card">
+                    <h2>Administración</h2>
+                    <a href="mailto:administracion@gamberini.com.ar"><i class="fas fa-envelope"></i> administracion@gamberini.com.ar</a>
+                    <a href="https://wa.me/543434698150" target="_blank"><i class="fab fa-whatsapp"></i> +54 343 469-8150</a>
+                </div>
             </div>
         </section>
 
@@ -43,20 +49,6 @@ import contacto from '../assets/hero/contacto.webp';
 </Layout>
 
 <style>
-    .pulse-icon {
-    width: 10px;
-    height: 10px;
-    background: var(--whatsapp);
-    border-radius: 50%;
-    box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
 .contact-section {
     display: flex;
     justify-content: center;
@@ -95,6 +87,22 @@ import contacto from '../assets/hero/contacto.webp';
     align-items: center;
     gap: 12px;
     width: 100%;
+    border-bottom: 4px solid var(--accent);
+}
+
+.pulse-icon {
+    width: 10px;
+    height: 10px;
+    background: var(--whatsapp);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(37, 211, 102, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .contact-right {
@@ -113,7 +121,9 @@ import contacto from '../assets/hero/contacto.webp';
     gap: 12px;
     width: 100%;
     flex: 1;
+    border-bottom: 4px solid var(--accent);
 }
+
 .contact-card h2 {
     color: var(--brand-900);
     margin-bottom: 8px;

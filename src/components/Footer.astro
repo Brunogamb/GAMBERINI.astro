@@ -4,44 +4,39 @@ import logo from '../assets/img/logoblanco.webp';
 import logofullhover from '../assets/img/logohover.webp';
 ---
 
-<footer> 
+<footer>
     <div class="footer-content">
-        <div class="footer-section location">
-            <h3>Ubicación</h3>
-            <a href="/contacto">
-                Francisco Soler 1083<br>
-                Paraná (3100), Entre Ríos
-            </a>
+        <div class="footer-grid">
+            <div class="footer-column brand-col">
+                <a href="/" class="footer-logo">
+                    <Image src={logo} alt="Gamberini Logo" class="logo-full" />
+                    <Image src={logofullhover} alt="Logo hover" class="logo-full-hover" loading="eager" />
+                </a>
+                <p class="brand-desc">Especialistas en sistemas de bombeo y protección contra incendios.</p>
+                <a href="https://instagram.com/gamberinibombas" target="_blank" class="ig-link">
+                    <i class="fab fa-instagram"></i> @gamberinibombas
+                </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Ubicación</h3>
+                <p>Francisco Soler 1083</p>
+                <p>Paraná, Entre Ríos</p>
+            </div>
+
+            <div class="footer-column cta-col">
+                <h3>¿Necesitás asesoramiento?</h3>
+                <p>Contactate con nuestras áreas de Ingeniería, Service o Administración.</p>
+                <a href="/contacto" class="btn-footer">Contactar</a>
+            </div>
         </div>
 
-        <div class="footer-section">
-            <h3>Contacto</h3>
-            <a href="https://www.instagram.com/gamberinibombas/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> @gamberinibombas</a>
-            <a href="tel:+5403434341997"><i class="fas fa-phone"></i> +54 3434 34-1997</a>
-        </div>
-
-        <div class="footer-section">
-            <h3>Ingeniería</h3>
-            <a href="mailto:ingenieria@gamberini.com.ar"><i class="fas fa-envelope"></i> ingenieria@gamberini.com.ar</a>
-            <a href="https://wa.me/543434050341" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +54 3434 05-0341</a>
-        </div>
-
-        <div class="footer-section">
-            <h3>Service</h3>
-            <a href="mailto:service@gamberini.com.ar"><i class="fas fa-envelope"></i> service@gamberini.com.ar</a>
-            <a href="https://wa.me/543434657441" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> +54 3434 65-7441</a>
-        </div>
-        
         <div class="footer-divider"></div>
-    </div>
 
-    <div class="footer-bottom">
-        <a href="/" class="footer-logo">
-            <Image src={logo} alt="Gamberini Logo" class="logo-full" />
-            <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
-        </a>
-        <p class="copyright">&copy; <span id="year">{new Date().getFullYear()}</span> Gamberini. Todos los derechos reservados.</p>
-        <p class="dev-name">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank" rel="noopener noreferrer" class="dev-link" >BrunoGamb</a></p>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; {new Date().getFullYear()} Gamberini. Todos los derechos reservados.</p>
+            <p class="dev">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank">BrunoGamb</a></p>
+        </div>
     </div>
 </footer>
 
@@ -53,24 +48,32 @@ footer {
     flex-direction: column;
     align-items: center;
     color: var(--white);
+    text-wrap: balance;
     padding: 10px 20px;
-    text-wrap: balance
 }
 
-footer h3 {
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr 1.2fr; 
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+h3 {
     text-transform: uppercase;
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
 }
 
 .footer-content {
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.footer-section {
+.footer-column {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
@@ -82,12 +85,23 @@ footer h3 {
     list-style: none;
 }
 
-.footer-section a {
-    line-height: 2;
+.footer-column a {
     width: fit-content;
     pointer-events: auto;
     white-space: nowrap;
-    display: inline-block; 
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.footer-column a, .footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(var(--white-rgb), 0.8);
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
 }
 
 .location:hover a {
@@ -112,27 +126,24 @@ footer h3 {
     align-items: center;
     gap: 30px;
     margin: 30px auto;
-    color: rgba(var(--white-rgb), 0.85);
-    font-size: 14px;
+    color: rgba(var(--white-rgb), 0.6);
     line-height: 1.4;
-}
-
-.footer-bottom img {
-    height: 26px;
-    width: auto;
+    font-size: 12px;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
-.dev-link {
+.footer-logo img {
+    height: 26px;
+    width: auto;
+}
+
+.dev a {
     font-weight: 600;
-}
-
-.dev-link:hover, footer a:hover {
-    color: var(--accent);
 }
 
 .copyright p {
@@ -163,4 +174,34 @@ footer h3 {
         margin: 16px 0;
     }
 }
+
+.btn-footer {
+    display: inline-block !important;
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px !important;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn-footer:hover {
+    background: var(--accent);
+    color: #0a192f !important;
+}
+
+@media (max-width: 992px) {
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-column a, .footer-column p { margin-left: auto; margin-right: auto; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+}
+
 </style>
