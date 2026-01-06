@@ -13,9 +13,11 @@ import logofullhover from '../assets/img/logohover.webp';
                     <Image src={logofullhover} alt="Logo hover" class="logo-full-hover" loading="eager" />
                 </a>
                 <p class="brand-desc">Especialistas en sistemas de bombeo y protección contra incendios.</p>
-                <a href="https://instagram.com/gamberinibombas" target="_blank" class="ig-link">
-                    <i class="fab fa-instagram"></i> @gamberinibombas
-                </a>
+                <div class="social-pills">
+                    <a href="https://instagram.com/gamberinibombas" target="_blank" class="ig-link" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> @gamberinibombas
+                    </a>
+                </div>
             </div>
 
             <div class="footer-column">
@@ -35,7 +37,7 @@ import logofullhover from '../assets/img/logohover.webp';
 
         <div class="footer-bottom">
             <p class="copyright">&copy; {new Date().getFullYear()} Gamberini. Todos los derechos reservados.</p>
-            <p class="dev">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank">BrunoGamb</a></p>
+            <p class="dev">Desarrollado por <a href="https://github.com/BrunoGamb" target="_blank" rel="noopener noreferrer">BrunoGamb</a></p>
         </div>
     </div>
 </footer>
@@ -54,9 +56,8 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 1fr 1.2fr; 
-    gap: 50px;
-    margin-bottom: 50px;
+    grid-template-columns: 1.5fr 1fr 1.5fr; 
+    gap: 50px; 
 }
 
 h3 {
@@ -95,7 +96,7 @@ h3 {
     color: #fff;
 }
 
-.footer-column a, .footer-column p {
+.footer-column, .footer-column {
     font-size: 14px;
     line-height: 1.6;
     color: rgba(var(--white-rgb), 0.8);
@@ -125,10 +126,10 @@ h3 {
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    margin: 30px auto;
+    margin: 10px auto;
     color: rgba(var(--white-rgb), 0.6);
     line-height: 1.4;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .footer-logo {
@@ -140,6 +141,21 @@ h3 {
 .footer-logo img {
     height: 26px;
     width: auto;
+}
+
+.social-pills a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    color: var(--brand-900);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    font-weight: 600;
 }
 
 .dev a {
@@ -163,45 +179,51 @@ h3 {
     display: inline;
 }
 
-@media (max-width: 745px) {
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        margin-top: 30px;
-    }
-
-    .footer-section {
-        margin: 16px 0;
-    }
-}
-
 .btn-footer {
-    display: inline-block !important;
-    margin-top: 10px;
-    padding: 12px 25px;
-    border: 1px solid var(--accent);
-    color: var(--accent) !important;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 12px !important;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.btn-footer:hover {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: var(--accent);
-    color: #0a192f !important;
+    color: var(--brand-900);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    font-weight: 600;
+	padding: 10px 20px; 
+    font-size: 14px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
 }
 
-@media (max-width: 992px) {
-    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+.btn-footer:hover, .social-pills a:hover {
+    background: var(--brand-700);
+    color: var(--white);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
-@media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-column a, .footer-column p { margin-left: auto; margin-right: auto; }
-    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+@media (max-width: 745px) {
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+        text-align: center;
+        gap: 0;
+    }
+
+    .footer-column a, .footer-column p { 
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+
+    .footer-column {
+        margin: 20px 0;
+    }
+
+    .footer-bottom { 
+        flex-direction: column; 
+        gap: 15px; 
+        text-align: center; }
+
 }
 
 </style>
