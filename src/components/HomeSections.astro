@@ -187,7 +187,7 @@ p {
 }
 
 .about-section {
-	background-color: var(--bg);
+	background-color: var(--white);
 }
 
 .about-container {
@@ -230,7 +230,7 @@ p {
 }
 
 .stats-section {
-	background: var(--brand-900);
+	background: var(--brand-800);
 }
 
 .stats-container {
@@ -263,7 +263,7 @@ p {
 }
 
 .services-section {
-	background-color: var(--bg);
+	background-color: var(--white);
 	max-width: 1240px;
 	margin: 0 auto 35px auto;
 }
@@ -312,19 +312,20 @@ p {
 
 .btn-service {
 	display: inline-block;
-	background: var(--accent);
-	color: var(--brand-900);
+	background: transparent;
+	color: var(--brand-700);
 	font-weight: 700;
 	padding: 14px 30px;
-	font-size: 18px;
-	border-radius: var(--radius-md);
-	transition: all 0.25s ease;
+	font-size: 16px;
+	border-radius: var(--radius-sm);
+	transition: all 0.2s ease;
+	border: 1px solid var(--brand-700);	
+	text-transform: uppercase;
 }
 
 .btn-service:hover {
-	background: var(--brand-900);
 	color: var(--white);
-	transform: scale(1.05);
+	background: var(--brand-700);
 }
 
 .process-section {
@@ -341,7 +342,7 @@ p {
 }
 
 .process-step {
-	background: var(--bg-light);
+	background: var(--white);
 	padding: 30px;
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-md);
@@ -357,7 +358,7 @@ p {
 }
 
 .projects-section {
-	background: var(--bg);
+	background: var(--white);
 	padding: 80px 20px 40px;
 }
 
@@ -408,7 +409,7 @@ p {
 
 .btn-project {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 14px 20px;
     border: 1px solid var(--brand-700);
     color: var(--brand-700);
     text-decoration: none;
@@ -416,8 +417,8 @@ p {
     font-size: 14px;
     text-transform: uppercase;
     text-align: center;
-    border-radius: var(--radius-xs);
-    transition: all 0.3s ease;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
 }
 
 .btn-project:hover {
@@ -426,7 +427,7 @@ p {
 }
 
 .cta-section {
-	padding: 60px 20px 20px;
+	padding: 40px 20px 20px;
 }
 
 .cta-content { 
@@ -447,10 +448,10 @@ p {
 
 .btn-cta {
 	display: inline-block;
-	background: var(--accent);
-	color: var(--brand-900);
-	font-weight: 700;
-	transition: all 0.25s ease;
+	background: transparent;
+	color: var(--white);
+	font-weight: 600;
+	transition: all 0.2s ease;
 	max-width: 400px;
 	margin: 0 auto;
 	padding: 14px 28px; 
@@ -458,13 +459,14 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: var(--radius-sm);
+    border: 1px solid var(--accent);
 }
 
 .btn-cta:hover {
 	color: var(--white);
-	transform: scale(1.05);
 	box-shadow: var(--shadow-lg);
 	background-color: var(--brand-700);
+	border-color: var(--brand-700);
 }
 
 @media (max-width: 1024px) {

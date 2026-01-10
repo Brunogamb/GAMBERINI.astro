@@ -1,26 +1,18 @@
 ---
 import { Image } from 'astro:assets';
-import logofull from '../assets/img/logoblanco.webp';
-import logofullhover from '../assets/img/logohover.webp';
-import logoicon from '/public/faviconblanco.png';
-import logoiconhover from '/public/faviconblancohover.png';
+import logo from '../assets/img/logoblanco.webp';
 ---
 
 <header>
     <div class="top-bar">
         <h1 class="header-logo">
             <a href="/">
-                <Image src={logofull} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
-                <Image src={logofullhover} alt="Logo hover Gamberini" class="logo-full-hover" loading="eager" />
-                <Image src={logoicon} alt="Icono Gamberini" class="logo-icon" loading="eager" />
-                <Image src={logoiconhover} alt="Icono hover Gamberini" class="logo-icon-hover" loading="eager" />
+                <Image src={logo} alt="Logo blanco Gamberini" class="logo-full" loading="eager" />
             </a>
         </h1>
 
         <div class="right-bar">
-            <nav class="top-nav">
-                <a href="/contacto" class="contact-link"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
-            </nav>
+            <a href="/contacto" class="contact-link"><i class="fas fa-phone"></i><span class="text">Contacto</span></a>
             <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span>
                 <span></span>
@@ -79,31 +71,6 @@ header {
     width: auto;
 }
 
-.logo-icon {
-    display: none;
-}
-
-.logo-full-hover, .logo-icon-hover {
-    display: none;
-}
-
-.header-logo:hover .logo-full {
-    display: none;
-}
-
-.header-logo:hover .logo-full-hover {
-    display: inline;
-}
-
-.top-nav a {
-    color: var(--white);
-    font-weight: 400;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .right-bar {
     display: flex;
     gap: 20px;
@@ -111,19 +78,21 @@ header {
 
 .contact-link {
     color: var(--white);
-    border: 1px solid rgba(255,255,255,0.4);
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
     padding: 8px 16px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .contact-link:hover {
-    background: var(--brand-900);
-	border-color: var(--brand-900);
-}
-
-.top-nav a:hover {
-    color: var(--white);
+    background: var(--white);
+	border-color: var(--white);
+    color: var(--text);
 }
 
 .services-nav {
@@ -174,7 +143,7 @@ header {
     top: 100%;
     left: 0;
     width: 100%;
-    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 75%);
+    background: linear-gradient(90deg, var(--brand-900) 20%, var(--brand-800) 45%, var(--brand-700) 95%);
     z-index: 15000;
     padding: 20px;
     animation: slideDown 0.25s ease forwards;
@@ -199,7 +168,7 @@ h1.header-logo {
 }
 
 @media (max-width: 745px) {
-    .top-nav i {
+    .contact-link i {
         font-size: 21px;
     }
 
@@ -305,28 +274,8 @@ h1.header-logo {
 }
 
 @media (max-width: 380px) {
-    .logo-full{
-        display: none;
-    }
-
-    .logo-icon {
-        display: flex;
-    }
-
-    .header-logo:hover .logo-full-hover{
-        display: none;
-    }
-
-    .header-logo:hover .logo-icon{
-        display: none;
-    }
-
-    .header-logo:hover .logo-icon-hover {
-        display: inline;
-    }
-
     .header-logo {
-        height: 40px;
+        height: 18px;
     }
 }
 </style>
