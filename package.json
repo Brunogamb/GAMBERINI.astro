@@ -2,7 +2,6 @@
   "name": "gamberini-astro",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@8.15.4",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,7 +11,8 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
     "@fontsource-variable/onest": "^5.2.9",
-    "astro": "^5.11.1"
+    "astro": "^5.11.1",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/node": "^24.0.14",
