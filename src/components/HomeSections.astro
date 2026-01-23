@@ -8,6 +8,7 @@ import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
 
 import frigorificoCotef from '../assets/trabajos/frigorifico-cotef.webp';
 import cineLasTipas from '../assets/trabajos/cine-las-tipas.webp';
+import complejoTunelSubfluvial from '../assets/trabajos/complejo-tunel-subfluvial.webp';
 
 import GrundfosTécnicoAutorizado from '../assets/service/GrundfosTécnicoAutorizado.webp';
 import WiloServicePartner from '../assets/service/WiloServicePartner.webp';
@@ -152,10 +153,10 @@ import NFPAMember from '../assets/incendios/NFPAMember.webp';
         </div>
 
         <div class="project-card">
-            <Image src={servicioTecnicoImg} alt="Mantenimiento Industrial" />
+            <Image src={complejoTunelSubfluvial} alt="Complejo Túnel Subfluvial" />
             <div class="project-body">
-                <h3>Mantenimiento Industrial</h3>
-                <p>Auditorías técnicas y optimización de rendimiento en plantas industriales, garantizando la máxima eficiencia operativa del sistema.</p>
+                <h3>Complejo Túnel Subfluvial</h3>
+                <p>Sistema integral contra incendios diseñado para la protección de instalaciones de turismo social, garantizando la seguridad de los visitantes y la continuidad operativa del predio.</p>
                 <a href="/" class="btn-project">Ver detalles</a>
             </div>
         </div>
@@ -637,6 +638,10 @@ p {
 }
 
 @media (max-width: 745px) {
+	.about-container {
+		padding: 0 0 40px 0;
+	}
+
 	.process-grid {
 		grid-template-columns: 1fr;
 	}
