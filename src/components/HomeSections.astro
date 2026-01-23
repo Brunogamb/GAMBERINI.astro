@@ -2,47 +2,71 @@
 import { Image } from 'astro:assets';
 import localGamberini from '../assets/hero/contacto.webp';
 
-import frigorificoCotef from '../assets/trabajos/frigorifico-cotef.webp';
-import cineLasTipas from '../assets/trabajos/cine-las-tipas.webp';
 import sistemaIncendiosImg from '../assets/hero/sistema-incendios.webp';
 import diseñoMontajeImg from '../assets/hero/diseño-montaje.webp';
 import servicioTecnicoImg from '../assets/hero/servicio-tecnico.webp';
+
+import frigorificoCotef from '../assets/trabajos/frigorifico-cotef.webp';
+import cineLasTipas from '../assets/trabajos/cine-las-tipas.webp';
+
+import GrundfosTécnicoAutorizado from '../assets/service/GrundfosTécnicoAutorizado.webp';
+import WiloServicePartner from '../assets/service/WiloServicePartner.webp';
+import NFPAMember from '../assets/incendios/NFPAMember.webp';
 ---
 
 <section class="about-section"> 
-	<div class="about-container"> 
-        <div class="about-text"> 
+    <div class="about-container"> 
+        <div class="about-text">
             <h2 class="title-left">Liderando la ingeniería de <strong>fluidos y seguridad</strong></h2> 
             <p>En <strong>Gamberini</strong> transformamos desafíos complejos en soluciones integrales. Combinamos décadas de experiencia con innovación tecnológica para garantizar la seguridad de activos y la eficiencia en sistemas de bombeo.</p> 
         </div>
         <div class="about-image-wrapper"> 
-            <Image src={localGamberini} alt="Local Gamberini" class="about-img-main" loading="eager"/>
-        </div> 
+			<div class="image-inner">
+				<Image src={localGamberini} alt="Sede Gamberini" class="about-img-main" loading="eager"/>
+				
+				<div class="experience-badge-combined">
+					<div class="badge-layer">
+						<span class="badge-num">+20</span>
+						<span class="badge-txt">AÑOS DE<br/>TRAYECTORIA</span>
+					</div>
+				</div>
+			</div>
+		</div>
     </div> 
 </section>
 
-<section class="stats-section">
-	<div class="stats-container">
-		<div class="stat-item">
-			<span class="stat-number">+20</span>
-			<p class="stat-label">Años de experiencia</p>
-		</div>
+<section class="certifications-section">
+    <div class="cert-container">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-logo-container">
+                    <Image src={NFPAMember} alt="NFPA Member" class="cert-icon" />
+                </div>
+                <div class="cert-info">
+                    <p>Estamos certificados como <span>miembro de la NFPA</span>, garantizando el cumplimiento de normas internacionales de seguridad.</p>
+                </div>
+            </div>
 
-		<div class="stat-item">
-			<span class="stat-number">+300</span>
-			<p class="stat-label">Proyectos realizados</p>
-		</div>
+            <div class="cert-card">
+                <div class="cert-logo-container">
+                    <Image src={GrundfosTécnicoAutorizado} alt="Grundfos Autorizado" class="cert-icon" />
+                </div>
+                <div class="cert-info">
+                    <p>Somos <span>agente de servicio técnico autorizado por Grundfos</span> para ofrecer servicios de mantenimiento y reparación con repuestos originales.</p>
+                </div>
+            </div>
 
-		<div class="stat-item">
-			<span class="stat-number">24/7</span>
-			<p class="stat-label">Soporte técnico</p>
-		</div>
-
-		<div class="stat-item">
-			<span class="stat-number">100%</span>
-			<p class="stat-label">Cumplimiento normativo</p>
-		</div>
-	</div>
+            <div class="cert-card">
+                <div class="cert-logo-container">
+                    <Image src={WiloServicePartner} alt="Wilo Partner" class="cert-icon" />
+                </div>
+                <div class="cert-info">
+                    <p>Como <span>service partner de Wilo</span>, líder mundial en bombeo, brindamos soluciones de alta eficiencia energética.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="services-section">
@@ -217,8 +241,11 @@ p {
 	font-weight: 800; 
 }
 
-.about-image-wrapper { 
-	position: relative; 
+.about-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-img-main {
@@ -229,37 +256,110 @@ p {
 	width: 100%;
 }
 
-.stats-section {
-	background: var(--brand-800);
+.experience-badge-combined {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    padding: 10px;
 }
 
-.stats-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 32px;
+.experience-badge-combined::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 0;
+    bottom: 0;
+    background-color: var(--accent); 
+    border-radius: var(--radius-sm);
+    z-index: 1;
+}
+
+.badge-layer {
+    position: relative;
+    z-index: 2;
+    background: var(--brand-900); 
+    padding: 20px 35px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.badge-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.badge-txt {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.certifications-section {
+    background-color: var(--bg-muted);
+	padding: 80px 20px;
+}
+
+.cert-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cert-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: var(--radius-md);
+    display: flex;
+	flex-direction: column;
+    align-items: center;
 	text-align: center;
+    box-shadow: var(--shadow-sm);
+	border-bottom: 4px solid var(--accent);
 }
 
-.stat-number {
-	font-size: 42px;
-	font-weight: 800;
-	color: var(--accent);
+.cert-icon {
+    max-width: 180px; 
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; 
 }
 
-.stat-label {
-	color: var(--white);
-	opacity: 0.9;
+.cert-info p span {
+    color: var(--brand-900);
+    font-weight: 700;
+    background: linear-gradient(to bottom, transparent 80%, var(--accent) 60%);
+    background-size: 100% 100%;
 }
 
-.stat-item { 
-	text-align: center; 
-	border-right: 1px solid rgba(255,255,255,0.1); 
+.cert-info p {
+	font-size: 18px;
+	line-height: 1.8;
+	color: var(--text);
+	text-wrap: balance;
 }
 
-.stat-item:last-child { 
-	border: none; 
+.cert-logo-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
 .services-section {
@@ -387,7 +487,7 @@ p {
 }
 
 .project-body {
-    padding: 25px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -531,13 +631,9 @@ p {
 		padding: 0 20px;
 	}
 
-	.stats-section {
-		padding: 60px 20px 60px 20px;
-	}
-
-	.stat-item {
-		border: none;
-	}
+	.about-stats {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 745px) {
@@ -558,17 +654,25 @@ p {
 		display: none;
 	}
 
-	.stats-container {
-        grid-template-columns: 1fr; 
-        gap: 20px;
+	.cert-card {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .stat-item {
-        padding-bottom: 15px;
+	.experience-badge-combined {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 30px;
+        align-self: center;
     }
 
-	.stat-item:last-child {
-        padding-bottom: 0px;
-	}
+	.cert-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cert-card {
+        padding: 30px 20px;
+    }
 }
 </style>
