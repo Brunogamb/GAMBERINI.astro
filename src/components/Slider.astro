@@ -35,10 +35,10 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
 <style>
 .slider {
     width: 100%;
-    margin: 50px auto;
+    padding: 50px 0;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    background: var(--white);
+    position: relative;
 }
 
 .slider .slide-track {
@@ -72,6 +72,35 @@ import rotorpump from '../assets/marcas/RotorPump.webp';
     100% {
         transform: translateX(-1592px);
     }
+}
+
+.slider::before,
+.slider::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 120px;
+	height: 100%;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.slider::before {
+	left: 0;
+	background: linear-gradient(
+		to right,
+		var(--white) 0%,
+		transparent 100%
+	);
+}
+
+.slider::after {
+	right: 0;
+	background: linear-gradient(
+		to left,
+		var(--white) 0%,
+		transparent 100%
+	);
 }
 </style>
 
