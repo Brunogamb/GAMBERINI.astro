@@ -19,7 +19,7 @@ import NFPAMember from '../assets/incendios/NFPAMember.webp';
     <div class="about-container"> 
         <div class="about-text">
             <h2 class="title-left">Liderando la ingeniería de <strong>fluidos y seguridad</strong></h2> 
-            <p>En <strong>Gamberini</strong> transformamos desafíos complejos en soluciones integrales. Combinamos décadas de experiencia con innovación tecnológica para garantizar la seguridad de activos y la eficiencia en sistemas de bombeo.</p> 
+            <p>En <span>Gamberini</span> transformamos desafíos complejos en soluciones integrales. Combinamos décadas de experiencia con innovación tecnológica para garantizar la seguridad de activos y la eficiencia en sistemas de bombeo.</p> 
         </div>
         <div class="about-image-wrapper"> 
 			<div class="image-inner">
@@ -228,6 +228,13 @@ p {
 	line-height: 1.8;
 	color: var(--text);
 	max-width: 500px;
+}
+
+.about-text span {
+	color: var(--brand-900);
+    font-weight: 700;
+    background: linear-gradient(to bottom, transparent 80%, var(--accent) 60%);
+    background-size: 100% 100%;
 }
 
 .title-left { 
@@ -448,6 +455,10 @@ p {
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-md);
 	border-bottom: 4px solid var(--accent)
+}
+
+.process-step h3 {
+	color: var(--brand-900);
 }
 
 .step-number {
