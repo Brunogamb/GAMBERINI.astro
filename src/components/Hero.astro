@@ -11,84 +11,119 @@ export interface Props {
 const { title, description, image, alt } = Astro.props;
 ---
 
-<section class="banner-hero" role="region" aria-labelledby="hero-heading">
-    <div class="banner-hero-img">
-        <Image src={image} alt={alt || title} />
-        <div class="banner-hero-overlay" aria-hidden="true"></div>
-        <div class="banner-text">
-            <h1 id="hero-heading">{title}</h1>
-            <p>{description}</p>
+<section class="hero-section" role="banner">
+    <div class="hero-wrapper">
+        <div class="image-container">
+            <Image src={image} alt={alt || ""} loading="eager" class="hero-img" />
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="content-limit">
+                <h1>{title}</h1>
+                <p>{description}</p>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
 
-.banner-hero {
+.hero-section {
+    position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     margin: 0 auto 24px auto;
+    width: 100%;
+    height: 300px;
 }
 
-.banner-hero-img {
+.hero-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img {
     position: relative;
     aspect-ratio: 16/6;
     max-height: 300px;
-    width: 100dvw;
-}
-
-.banner-hero-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    object-position: center;
+    filter: grayscale(40%);
 }
 
-.banner-hero-overlay {
+.hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(var(--brand-900-rgb),0.88) 20%, rgba(var(--brand-800-rgb),0.88) 45%, rgba(var(--brand-700-rgb),0.88) 95%);
     opacity: 0.7;
-    backdrop-filter: blur(var(--blur-sm));
+    background: linear-gradient(to right, rgba(10, 15, 26, 1) 0%, rgba(10, 15, 26, 0.8) 35%, rgba(10, 15, 26, 0.4) 100%);
 }
 
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    color: var(--white);
+.hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-limit {
+    max-width: 850px; 
     text-align: center;
-    word-break: break-word;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
     text-wrap: balance;
 }
 
-.banner-text h1 {
-    font-size: clamp(18px, 8vw, 38px);
-    font-weight: 700;
-    margin-bottom: 18px;
-    line-height: 1.1;
-}
-
-.banner-text p {
-    font-size: clamp(14px, 3vw, 20px);
-    font-weight: 200;
-    line-height: 1.5;
-    color: var(--muted);
+p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--white);
+    line-height: 1.6;
+    font-weight: 400;
+    text-wrap: balance;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 @media (max-width: 745px) {
-    .banner-text {
-        width: 100%;
+    .hero-section {
+        height: 200px;
     }
 
-    .banner-text p{
+    p {
         display: none;
     }
 
-    .banner-text h1 {
+    h1 {
         margin: auto;
     }
+
+    .content-limit {
+        text-align: center;
+        margin: 0 auto;
+    }
 }
+
 </style>
