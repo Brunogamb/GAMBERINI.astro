@@ -31,3 +31,5 @@ jobs:
           password: ${{ secrets.NEOLO_PASS }}
           local-dir: ./dist/
           server-dir: /httpdocs/
+          exclude: |
+            **/firmas/**
